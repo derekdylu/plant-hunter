@@ -1,0 +1,279 @@
+.background {
+  position: absolute;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: fill;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.logotype {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: auto;
+
+  @media screen and (max-width: 1024px) {
+    top: 10vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 10vh;
+  }
+
+  @media screen and (max-width: 640px) {
+    top: 10vh;
+  }
+}
+
+.mt_mr {
+  position: absolute;
+  z-index: 2;
+  top: 10vh;
+  right: -15vw;
+
+  @media screen and (max-width: 1024px) {
+    top: 25vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 38vh;
+  }
+
+  @media screen and (max-width: 640px) {
+    
+  }
+}
+
+.cb_mr {
+  position: absolute;
+  z-index: 3;
+  top: 40vh;
+  right: -5vw;
+
+  @media screen and (max-width: 1024px) {
+    top: 50vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 55vh;
+  }
+
+  @media screen and (max-width: 640px) {
+    top: 45vh;
+    right: -40vw;
+  }
+}
+
+.pr_m {
+  position: absolute;
+  z-index: 4;
+  top: 35vh;
+  width: 100vw;
+
+  @media screen and (max-width: 1024px) {
+    top: 50vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 58vh;
+  }
+
+  @media screen and (max-width: 640px) {
+    height: 60vh;
+    top: 40vh;
+  }
+}
+
+.pr_bl {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: -5vw;
+  width: 50vw;
+
+  @media screen and (max-width: 1024px) {
+    
+  }
+
+  @media screen and (max-width: 768px) {
+    
+  }
+
+  @media screen and (max-width: 640px) {
+    
+  }
+}
+
+.台灣喜普鞋蘭 {
+  position: absolute;
+  z-index: 6;
+  left: 18vw;
+  bottom: -5vh;
+  transform: scale(1.0);
+  
+  @media screen and (max-width: 1024px) {
+    
+  }
+
+  @media screen and (max-width: 768px) {
+    left: 10vw;
+    transform: scale(0.75);
+  }
+
+  @media screen and (max-width: 640px) {
+    left: -15vw;
+    transform: scale(0.6);
+  }
+}
+
+.np {
+  position: absolute;
+  z-index: 7;
+  right: 0;
+  bottom: -10vh;
+
+  @media screen and (max-width: 1024px) {
+    right: -10vw;
+  }
+
+  @media screen and (max-width: 768px) {
+    right: -30vw;
+    bottom: -10vh;
+  }
+
+  @media screen and (max-width: 640px) {
+    
+  }
+}
+
+.book {
+  position: absolute;
+  z-index: 8;
+  width: 50vw;
+  top: 80vh;
+
+  @media screen and (max-width: 1024px) {
+    
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 80vw;
+    top: 85vh;
+  }
+
+  @media screen and (max-width: 640px) {
+    width: 100vw;
+    top: 85vh;
+  }
+}
+
+.mt_bl {
+  position: absolute;
+  z-index: 9;
+  left: -10vw;
+  bottom: -5vh;
+
+  @media screen and (max-width: 1024px) {
+    left: -30vw;
+  }
+
+  @media screen and (max-width: 768px) {
+    left: -40vw;
+  }
+
+  @media screen and (max-width: 640px) {
+    bottom: 0;
+  }
+}
+
+.pr_br {
+  position: absolute;
+  z-index: 10;
+  right: -30vw;
+  bottom: -2.5vh;
+
+  @media screen and (max-width: 1024px) {
+    right: -60vw;
+  }
+
+  @media screen and (max-width: 768px) {
+    right: -80vw;
+  }
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
+}
+
+.桃紅蝴蝶蘭 {
+  position: absolute;
+  z-index: 11;
+  right: 20vw;
+  top: 47vh;
+
+  @media screen and (max-width: 1024px) {
+    
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 55vh;
+  }
+
+  @media screen and (max-width: 640px) {
+    right: -15vw;
+  }
+}
+
+.cb_ul {
+  position: absolute;
+  z-index: 12;
+  left: -3vw;
+  top: 0;
+}
+
+.台灣野牡丹藤 {
+  position: absolute;
+  z-index: 13;
+  left: 20vw;
+  top: 0;
+
+  @media screen and (max-width: 1024px) {
+    
+  }
+
+  @media screen and (max-width: 768px) {
+
+  }
+
+  @media screen and (max-width: 640px) {
+    left: -10vw;
+  }
+}
+
+.pr_ur {
+  position: absolute;
+  z-index: 14;
+  right: 0;
+  top: 0;
+}
+
+.shovel {
+  position: absolute;
+  z-index: 15;
+  right: 10vw;
+  top: -10vh;
+
+  @media screen and (max-width: 1024px) {
+    
+  }
+
+  @media screen and (max-width: 768px) {
+    
+  }
+
+  @media screen and (max-width: 640px) {
+    right: -20vw;
+  }
+}
