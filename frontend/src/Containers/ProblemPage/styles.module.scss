@@ -1,0 +1,173 @@
+.wrapper {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: fill;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.topCurtain {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+
+  width: 100vw;
+  height: 340px;
+  background-image: url('../../Assets/ProblemPage/top.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  @media screen and (max-width: 1024px) {
+    height: 200px;
+  }
+}
+
+.bottomCurtain {
+  position: absolute;
+  z-index: 20;
+  bottom: 0;
+}
+
+.options {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.options {
+  animation: slideIn-easeOutElastic 2s linear normal;
+
+  @keyframes slideOut {
+    from {
+      left: 0;
+    }
+    to {
+      left: -100vw;
+    }
+  }
+
+  @keyframes slideIn-easeOutElastic {
+    0% {
+      transform: translateX(0%+100%);
+    }
+  
+    16% {
+      transform: translateX(-132.27%+100%);
+    }
+  
+    28% {
+      transform: translateX(-86.88%+100%);
+    }
+  
+    44% {
+      transform: translateX(-104.63%+100%);
+    }
+  
+    59% {
+      transform: translateX(-98.36%+100%);
+    }
+  
+    73% {
+      transform: translateX(-100.58%+100%);
+    }
+  
+    88% {
+      transform: translateX(-99.8%+100%);
+    }
+  
+    100% {
+      transform: translateX(-100%+100%);
+    }
+  }
+}
+
+.option {
+
+  &:hover {
+    filter: drop-shadow(0 0 4px red);
+  }
+
+  &:active {
+    filter: drop-shadow(0 0 4px black);
+  }
+}
+
+.optionImage {
+  width: 224px;
+  height: 294px;
+
+  @media screen and (max-width: 768px) {
+    width: 151px;
+    height: 200px;
+  }
+}
+
+.optionTitle {
+  position: relative;
+  top: -50px;
+  right: -25px;
+}
+
+.puppetBottom {
+  bottom: 0;
+  left: 50vw;
+
+  @keyframes slideIn {
+    from {
+      bottom: -100vh;
+    }
+    to {
+      bottom: 0;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      bottom: 0;
+    }
+    to {
+      bottom: -100vh;
+    }
+  }
+}
+
+.puppetTop {
+  top: 0;
+  left: 50vw;
+
+  @keyframes slideIn {
+    from {
+      top: -100vh;
+    }
+    to {
+      top: 0;
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      top: 0;
+    }
+    to {
+      top: -100vh;
+    }
+  }
+}
+
+.problemWrapper {
+  position: absolute;
+  z-index: 21;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}

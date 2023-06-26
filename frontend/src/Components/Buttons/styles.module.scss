@@ -1,0 +1,21 @@
+.primary {
+  width: 200px;
+  height: 64px;
+
+  background-image: url( '../../Assets/Elements/tape-BTN.svg' );
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+}
+
+.shadow {
+  filter: drop-shadow(0 0 4px #777061);
+
+  &:hover {
+    filter: drop-shadow(0 0 4px red);
+  }
+
+  &:active {
+    filter: drop-shadow(0 0 4px black);
+  }
+}

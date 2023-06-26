@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .background {
   position: absolute;
   z-index: 0;
@@ -11,21 +15,128 @@
 .logotype {
   position: absolute;
   z-index: 1;
-  top: 0;
   width: auto;
-
-  @media screen and (max-width: 1024px) {
-    top: 10vh;
-  }
+  top: 25px;
 
   @media screen and (max-width: 768px) {
-    top: 10vh;
+    top: 50px;
   }
 
   @media screen and (max-width: 640px) {
-    top: 10vh;
+    top: 100px;
   }
 }
+
+.topLeft {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  width: 716px;
+  height: 151px;
+  background-image: url('../../Assets/StartPage/top\ left.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+
+  @media screen and (max-width: 1024px) {
+    width: 100vw;
+  }
+}
+
+.topRight {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+
+  width: 916px;
+  height: 136px;
+  background-image: url('../../Assets/StartPage/top\ right.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top right;
+
+  @media screen and (max-width: 1024px) {
+    width: 100vw;
+  }
+}
+
+.middleRight {
+  position: absolute;
+  z-index: 4;
+  top: 50px;
+  right: 0;
+
+  width: 781px;
+  height: 572px;
+  background-image: url('../../Assets/StartPage/middle\ right.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+
+  @media screen and (max-width: 768px) {
+    top: 150px;
+    width: 100vw;
+  }
+}
+
+.pr_m {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  width: 100vw;
+  height: 60vh;
+}
+
+.startButton {
+  position: absolute;
+  z-index: 20;
+  top: 55vh;
+}
+
+.bottomRight {
+  position: absolute;
+  z-index: 6;
+  bottom: 0;
+  right: 0;
+
+  width: 1359px;
+  height: 293px;
+  background-image: url('../../Assets/StartPage/bottom\ right.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom right;
+
+  @media screen and (max-width: 1024px) {
+    width: 100vw;
+  }
+}
+
+.bottomLeft {
+  position: absolute;
+  z-index: 7;
+  bottom: 0;
+  left: 0;
+
+  width: 1020px;
+  height: 517px;
+  background-image: url('../../Assets/StartPage/bottom\ left.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom left;
+
+  @media screen and (max-width: 1024px) {
+    width: 100vw;
+  }
+}
+
+
+
+
+
+// NOTE deprecated below
 
 .mt_mr {
   position: absolute;
@@ -63,26 +174,6 @@
   @media screen and (max-width: 640px) {
     top: 45vh;
     right: -40vw;
-  }
-}
-
-.pr_m {
-  position: absolute;
-  z-index: 4;
-  top: 35vh;
-  width: 100vw;
-
-  @media screen and (max-width: 1024px) {
-    top: 50vh;
-  }
-
-  @media screen and (max-width: 768px) {
-    top: 58vh;
-  }
-
-  @media screen and (max-width: 640px) {
-    height: 60vh;
-    top: 40vh;
   }
 }
 
