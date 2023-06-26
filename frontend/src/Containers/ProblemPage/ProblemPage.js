@@ -29,7 +29,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, handleN
   const handleClick = (problemIndex, optionIndex) => {
     console.log("clk", problemIndex, optionIndex)
     let prev = localStorage.getItem("plant-hunter")
-    if (JSON.parse(prev).length === 0 || JSON.parse(prev).length > problemIndex) {
+    if (prev === null || JSON.parse(prev).length === 0 || JSON.parse(prev).length > problemIndex) {
       console.log("clear")
       localStorage.clear()
       let selected = [optionIndex]
