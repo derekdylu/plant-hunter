@@ -45,7 +45,7 @@
 }
 
 .options {
-  animation: slideIn-easeOutElastic 2s linear normal;
+  animation: slideIn-easeOutElastic 1s linear normal;
 
   @keyframes slideOut {
     from {
@@ -62,19 +62,19 @@
     }
   
     16% {
-      transform: translateX(-132.27%+100%);
+      transform: translateX(-112.27%+100%);
     }
   
     28% {
-      transform: translateX(-86.88%+100%);
+      transform: translateX(-96.88%+100%);
     }
   
     44% {
-      transform: translateX(-104.63%+100%);
+      transform: translateX(-102.63%+100%);
     }
   
     59% {
-      transform: translateX(-98.36%+100%);
+      transform: translateX(-99.36%+100%);
     }
   
     73% {
@@ -91,6 +91,11 @@
   }
 }
 
+/* Labels for checked inputs */
+input:checked + label {
+  filter: drop-shadow(0 0 4px blue);
+}
+
 .option {
 
   &:hover {
@@ -98,7 +103,7 @@
   }
 
   &:active {
-    filter: drop-shadow(0 0 4px black);
+    filter: drop-shadow(0 0 4px blue);
   }
 }
 

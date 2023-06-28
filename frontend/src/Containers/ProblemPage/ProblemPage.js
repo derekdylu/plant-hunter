@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import classnames from 'classnames'
 import styles from './styles.module.scss'
 
@@ -9,38 +9,57 @@ const default_image = "https://images.unsplash.com/photo-1586074299757-dc655f185
 const default_options = [
   {
     "title": "選項1",
+    "score": 0,
     "image": default_image,
   },
   {
     "title": "選項2",
+    "score": 1,
     "image": default_image,
   },
   {
     "title": "選項3",
+    "score": 2,
     "image": default_image,
   },
   {
     "title": "選項4",
+    "score": 3,
     "image": default_image,
   }
 ]
 
 const ProblemPage = ({problemIndex, problems, options = default_options, handleNextPage}) => {
-  const handleClick = (problemIndex, optionIndex) => {
-    console.log("clk", problemIndex, optionIndex)
+  const [select, setSelect] = useState([])
+
+  const handleSubmit = (problemIndex) => {
+    if (select.length === 0) { return }
+
+    console.log("clk", problemIndex, select) // NOTE
     let prev = localStorage.getItem("plant-hunter")
-    if (prev === null || JSON.parse(prev).length === 0 || JSON.parse(prev).length > problemIndex) {
-      console.log("clear")
-      localStorage.clear()
-      let selected = [optionIndex]
-      localStorage.setItem("plant-hunter", JSON.stringify(selected))
-    } else {
-      let selected = JSON.parse(prev)
-      let _selected = selected.concat([optionIndex])
-      localStorage.setItem("plant-hunter", JSON.stringify(_selected))
-    }
-    console.log("selected", localStorage.getItem("plant-hunter"))
+    let selected = JSON.parse(prev)
+    let _selected = selected.concat(select)
+    localStorage.setItem("plant-hunter", JSON.stringify(_selected))
+    console.log("selected", localStorage.getItem("plant-hunter")) // NOTE
     handleNextPage();
+
+    setSelect([])
+    let checkList = document.getElementsByTagName("input")
+    for (let i = 0; i < checkList.length; i++) { checkList[i].checked = false }
+  }
+
+  const handleClear = () => {
+    console.log("clear")
+    localStorage.clear()
+    localStorage.setItem("plant-hunter", JSON.stringify([]))
+  }
+
+  const handleClick = (index) => {
+    if (select.find((item) => item === index) === undefined) {
+      setSelect([...select, index])
+    } else {
+      setSelect(select.filter((item) => item !== index))
+    }
   }
 
   return (
@@ -57,6 +76,8 @@ const ProblemPage = ({problemIndex, problems, options = default_options, handleN
             )
           })
         }
+        <button onClick={() => handleSubmit(problemIndex)}>submit</button>
+        <button onClick={() => handleClear()}>clear</button>
       </div>
 
       <div className={classnames(styles.topCurtain)}>top</div>
@@ -66,9 +87,12 @@ const ProblemPage = ({problemIndex, problems, options = default_options, handleN
         {
           options?.map((option, index) => {
             return (
-              <div className={classnames(styles.option, '')} key={index} onClick={() => handleClick(problemIndex, index)}>
-                <img src={option.image} className={classnames(styles.optionImage)} alt='optionImage' />
-                <div className={classnames(styles.optionTitle)}>{option.title}</div>
+              <div key={index}>
+                <input type="checkbox" id={index} style={{ "opacity": 0 }}></input>
+                <label htmlFor={index} className={classnames(styles.option, '')} onClick={() => handleClick(index)}>
+                  <img src={option.image} className={classnames(styles.optionImage)} alt='optionImage' />
+                  <div className={classnames(styles.optionTitle)}>{option.title}</div>
+                </label>
               </div>
             )
           })
