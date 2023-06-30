@@ -23,8 +23,21 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
     setResult(resList[0].index)
   }
 
+  const postResult = async () => {
+    const response = await fetch('/.netlify/functions/post_result', {
+      method: 'POST',
+      body: JSON.stringify({
+        "selection": JSON.parse(localStorage.getItem('ops')),
+        "result": result
+      })
+    })
+    const data = await response.json()
+    console.log("post result", data)
+  }
+
   useEffect(() => {
     calculate()
+    postResult()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
