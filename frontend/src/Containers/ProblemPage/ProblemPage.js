@@ -49,7 +49,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
     let ops = JSON.parse(localStorage.getItem("ops"))
 
     select.map(s => selected = selected.concat(options[s].score))
-    ops = ops.concat(select)
+    ops = ops.concat([{select}])
 
     localStorage.setItem("ops", JSON.stringify(ops))
     localStorage.setItem("plant-hunter", JSON.stringify(selected))
