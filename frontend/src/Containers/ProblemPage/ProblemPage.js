@@ -59,7 +59,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
     let checkList = document.getElementsByTagName("input")
     for (let i = 0; i < checkList.length; i++) { checkList[i].checked = false }
   }
-  
+
   const handleClick = (index) => {
     if (multiple) {
       if (select.find((item) => item === index) === undefined) {
@@ -90,7 +90,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>
-      <div className={classnames(styles.problemWrapper, 'flex flex-col items-center justify-center mt-12 px-6')}>
+      <div className={classnames(styles.problemWrapper, 'flex flex-col items-center justify-center mt-6 lg:mt-12 px-6')}>
         <div className={classnames('flex flex-row items-center justify-center mb-3')}>
           <div className={classnames(styles.problemTitle, 'text-lg font-medium')}>{problemIndex+1}</div>
           <div className={classnames(styles.problemTitle, 'text-base font-medium ml-1')}>/10</div>
@@ -108,29 +108,31 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
       <div className={classnames(styles.bottomCurtain)}></div>
       <div className={classnames(styles.bottomRightCurtain)}></div>
       
-      <div className='absolute flex flex-col w-screen h-screen items-center justify-center mt-16'>
-        <div className={classnames(styles.options, `${grid?"grid grid-cols-2 lg:grid-cols-4 items-center":"flex flex-col items-center"} justify-items-center`)}>
-          {
-            options?.map((option, index) => {
-              return (
-                <div className={classnames('')} key={index}>
-                  <input type="checkbox" id={index} style={{ "opacity": 0, "display": "none" }}></input>
-                  <label htmlFor={index} className={classnames(styles.option, 'flex flex-col items-center')} onClick={() => handleClick(index)}>
-                    {
-                      option.image === null ?
-                        <img src={defaultImageList[index % 2]} className={classnames(styles.optionImage)} alt='optionImage' />
-                        :
-                        <img src={option.image} className={classnames(styles.optionImage)} alt='optionImage' />
-                    }
-                    <div className={classnames(styles.optionTitle)}>{option.title}</div>
-                  </label>
-                </div>
-              )
-            })
-          }
-        </div>
-        <div className={classnames(styles.button, 'mt-6')} onClick={() => !disabled && handleSubmit(problemIndex)}>
-          <PrimaryButton text='繼續' variant='contained' disabled={disabled} />
+      <div className='absolute flex flex-col w-screen h-screen items-center justify-center px-0 pt-52 pb-36'>
+        <div className='absolute flex flex-col w-full h-full items-center justify-center'>
+          <div className={classnames(styles.options, `${grid?"grid grid-cols-2 lg:grid-cols-4 items-center":"flex flex-col items-center"} justify-items-center`)}>
+            {
+              options?.map((option, index) => {
+                return (
+                  <div className={classnames('')} key={index}>
+                    <input type="checkbox" id={index} style={{ "opacity": 0, "display": "none" }}></input>
+                    <label htmlFor={index} className={classnames(styles.option, 'flex flex-col items-center')} onClick={() => handleClick(index)}>
+                      {
+                        option.image === null ?
+                          <img src={defaultImageList[index % 2]} className={classnames(styles.optionImage)} alt='optionImage' />
+                          :
+                          <img src={option.image} className={classnames(styles.optionImage)} alt='optionImage' />
+                      }
+                      <div className={classnames(styles.optionTitle)}>{option.title}</div>
+                    </label>
+                  </div>
+                )
+              })
+            }
+          </div>
+          <div className={classnames(styles.button, 'mt-6')} onClick={() => !disabled && handleSubmit(problemIndex)}>
+            <PrimaryButton text='繼續' variant='contained' disabled={disabled} />
+          </div>
         </div>
       </div>
         
