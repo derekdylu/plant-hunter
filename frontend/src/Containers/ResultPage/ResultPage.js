@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const default_resultList = [
   {
@@ -46,9 +46,7 @@ const ResultPage = ({resultList = default_resultList, orderAdjustmentList = defa
     setResult(resList[0].index)
   }
 
-  useEffect(() => {
-    calculate()
-  }, [])
+  calculate()
 
   return (
     <div>result: {result}</div>
