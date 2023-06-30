@@ -16,16 +16,18 @@
   position: absolute;
   z-index: 20;
   top: 0;
+  
+  pointer-events: none;
 
   width: 100vw;
   height: 340px;
-  background-image: url('../../Assets/ProblemPage/top.png');
+  background-image: url('../../Assets/ProblemPage/Base/top.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
 
   @media screen and (max-width: 1024px) {
-    height: 200px;
+    top: -32px;
   }
 }
 
@@ -33,19 +35,62 @@
   position: absolute;
   z-index: 20;
   bottom: 0;
+
+  pointer-events: none;
+
+  width: 100vw;
+  height: 160px;
+  background-image: url('../../Assets/TutorialPage/bottom.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+
+  @media screen and (max-width: 1024px) {
+    height: 80px;
+  }
 }
 
-.options {
+.bottomRightCurtain {
   position: absolute;
-  z-index: 10;
+  z-index: 19;
+  bottom: 0;
+  right: 0;
+
+  pointer-events: none;
+
+  width: 641px;
+  height: 227px;
+  background-image: url('../../Assets/ProblemPage/Base/bottom\ right.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right top;
+
+  @media screen and (max-width: 1024px) {
+    width: 320.5px;
+    height: 113.5px;
+  }
+}
+
+.problemWrapper {
+  position: absolute;
+  z-index: 21;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+}
+
+input:checked + label {
+  filter: drop-shadow(0 0 4px blue);
+}
+
+.optionsWrapper {
+  position: absolute;
+  height: 200px;
 }
 
 .options {
-  animation: slideIn-easeOutElastic 2s linear normal;
+  z-index: 10;
+  animation: slideIn-easeOutElastic 1s linear normal;
 
   @keyframes slideOut {
     from {
@@ -62,19 +107,19 @@
     }
   
     16% {
-      transform: translateX(-132.27%+100%);
+      transform: translateX(-112.27%+100%);
     }
   
     28% {
-      transform: translateX(-86.88%+100%);
+      transform: translateX(-96.88%+100%);
     }
   
     44% {
-      transform: translateX(-104.63%+100%);
+      transform: translateX(-102.63%+100%);
     }
   
     59% {
-      transform: translateX(-98.36%+100%);
+      transform: translateX(-99.36%+100%);
     }
   
     73% {
@@ -92,35 +137,26 @@
 }
 
 .option {
-
   &:hover {
     filter: drop-shadow(0 0 4px red);
   }
 
   &:active {
-    filter: drop-shadow(0 0 4px black);
-  }
-}
-
-.optionImage {
-  width: 224px;
-  height: 294px;
-
-  @media screen and (max-width: 768px) {
-    width: 151px;
-    height: 200px;
+    filter: drop-shadow(0 0 4px blue);
   }
 }
 
 .optionTitle {
   position: relative;
-  top: -50px;
-  right: -25px;
+  bottom: 42px;
 }
 
 .puppetBottom {
+  position: absolute;
+  z-index: 5;
   bottom: 0;
-  left: 50vw;
+  left: -50px;
+  width: 75vw;
 
   @keyframes slideIn {
     from {
@@ -142,6 +178,8 @@
 }
 
 .puppetTop {
+  position: absolute;
+  z-index: 5;
   top: 0;
   left: 50vw;
 
@@ -164,10 +202,6 @@
   }
 }
 
-.problemWrapper {
-  position: absolute;
-  z-index: 21;
-  top: 0;
-  left: 0;
-  width: 100vw;
+.button {
+  z-index: 10;
 }

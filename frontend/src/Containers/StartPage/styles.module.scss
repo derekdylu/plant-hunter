@@ -90,7 +90,26 @@
   height: 60vh;
 }
 
-.startButton {
+// .pr_m_t {
+//   position: absolute;
+//   z-index: 5;
+//   bottom: 25vh;
+//   width: 100vw;
+//   height: 60vh;
+
+//   animation: moveUp 0.2s linear normal;
+
+//   @keyframes moveUp {
+//     from {
+//       bottom: 0;
+//     }
+//     to {
+//       bottom: 25vh;
+//     }
+//   }
+// }
+
+.button {
   position: absolute;
   z-index: 20;
   top: 55vh;

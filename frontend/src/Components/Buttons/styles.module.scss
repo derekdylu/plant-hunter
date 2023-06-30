@@ -5,7 +5,17 @@
   background-image: url( '../../Assets/Elements/tape-BTN.svg' );
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.disabled {
+  width: 200px;
+  height: 64px;
+
+  pointer-events: none;
   
+  background-image: url( '../../Assets/Elements/tape-BTN.svg' );
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .shadow {
