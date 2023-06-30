@@ -32,7 +32,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
       })
     })
     const data = await response.json()
-    console.log("post result", data)
+    console.log("netlify function: post result", data)
   }
 
   useEffect(() => {
