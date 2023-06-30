@@ -306,6 +306,7 @@ const data = [
 function App() {
   const [phase, setPhase] = useState(0); // 0, 1, 2, 3
   const [problem, setProblem] = useState(0); // 0, 1, 2, 3 ...
+  const [resultList, setResultList] = useState([])
 
   const handleNextPage = () => {
     if (phase === 0) {
@@ -315,6 +316,7 @@ function App() {
       setPhase(2);
     }
     if (phase === 2 && problem === data.length - 1) {
+      setResultList(JSON.parse(localStorage.getItem('plant-hunter')))
       setPhase(3);
     }
     if (phase === 2 && problem < data.length - 1) {
@@ -339,7 +341,7 @@ function App() {
                         /> 
       }
 
-      { phase === 3 && <ResultPage /> }
+      { phase === 3 && <ResultPage resultList={resultList} /> }
     </>
   );
 }

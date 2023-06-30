@@ -26,9 +26,9 @@ const StartPage = ({handleNextPage}) => {
         <img src={pr_m} className={classnames(styles.pr_m)} alt='pr_m' />
         <img src={logotype} className={classnames(styles.logotype)} alt='logotype'/>
       </div>
-      <div className={classnames(styles.middleRight)}>.</div>
-      <div className={classnames(styles.topRight)}>.</div>
-      <div className={classnames(styles.topLeft)}>.</div>
+      <div className={classnames(styles.middleRight)}></div>
+      <div className={classnames(styles.topRight)}></div>
+      <div className={classnames(styles.topLeft)}></div>
       <img src={background} className={classnames(styles.background)} alt='background' />
     </div>
   )

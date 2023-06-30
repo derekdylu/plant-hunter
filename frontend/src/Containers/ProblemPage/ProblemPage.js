@@ -59,13 +59,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
     let checkList = document.getElementsByTagName("input")
     for (let i = 0; i < checkList.length; i++) { checkList[i].checked = false }
   }
-
-  const handleClear = () => {
-    console.log("clear")
-    localStorage.clear()
-    localStorage.setItem("plant-hunter", JSON.stringify([]))
-  }
-
+  
   const handleClick = (index) => {
     if (multiple) {
       if (select.find((item) => item === index) === undefined) {
@@ -98,17 +92,16 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>
       <div className={classnames(styles.problemWrapper, 'flex flex-col items-center justify-center mt-12 px-6')}>
         <div className={classnames('flex flex-row items-center justify-center mb-3')}>
-          <div className={classnames(styles.problemTitle, 'text-lg')}>{problemIndex+1}</div>
-          <div className={classnames(styles.problemTitle, 'text-base ml-1')}>/10</div>
+          <div className={classnames(styles.problemTitle, 'text-lg font-medium')}>{problemIndex+1}</div>
+          <div className={classnames(styles.problemTitle, 'text-base font-medium ml-1')}>/10</div>
         </div>
         {
           problems?.map((problem, index) => {
             return (
-              <div className={classnames(styles.problemTitle, 'text-base')} key={index}>{problem}</div>
+              <div className={classnames(styles.problemTitle, 'text-base font-medium')} key={index}>{problem}</div>
             )
           })
         }
-        <button onClick={() => handleClear()}>clear</button>
       </div>
 
       <div className={classnames(styles.topCurtain)}></div>
@@ -143,7 +136,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
         
       {
         puppet !== null && (
-          <div className={classnames(styles.puppetBottom)}>
+          <div className={classnames(styles.bottomPuppet)}>
             <img src={puppet} alt="puppet" />
           </div>
         )
