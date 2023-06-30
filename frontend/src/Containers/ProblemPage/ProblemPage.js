@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import styles from './styles.module.scss'
 
