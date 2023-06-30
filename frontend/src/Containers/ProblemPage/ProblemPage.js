@@ -108,15 +108,15 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
       <div className={classnames(styles.bottomCurtain)}></div>
       <div className={classnames(styles.bottomRightCurtain)}></div>
       
-      <div className='absolute flex flex-col w-screen h-screen items-center justify-center px-0 pt-52 pb-36'>
-        <div className='absolute flex flex-col w-full h-full items-center justify-center'>
+      <div className='absolute flex flex-col w-screen h-screen items-center justify-center pt-56 pb-36'>
+        <div className='absolute flex flex-col w-4/5 lg:w-full h-full items-center justify-center'>
           <div className={classnames(styles.options, `${grid?"grid grid-cols-2 lg:grid-cols-4 items-center":"flex flex-col items-center"} justify-items-center`)}>
             {
               options?.map((option, index) => {
                 return (
-                  <div className={classnames('')} key={index}>
+                  <div key={problemIndex.toString() + index.toString()}>
                     <input type="checkbox" id={index} style={{ "opacity": 0, "display": "none" }}></input>
-                    <label htmlFor={index} className={classnames(styles.option, 'flex flex-col items-center')} onClick={() => handleClick(index)}>
+                    <label htmlFor={index} className={classnames(styles.option, `flex flex-col items-center ${option.image === null ? "h-16":"h-auto"}`)} onClick={() => handleClick(index)}>
                       {
                         option.image === null ?
                           <img src={defaultImageList[index % 2]} className={classnames(styles.optionImage)} alt='optionImage' />
@@ -130,7 +130,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
               })
             }
           </div>
-          <div className={classnames(styles.button, 'mt-6')} onClick={() => !disabled && handleSubmit(problemIndex)}>
+          <div className={classnames(styles.button, 'mt-2 lg:mt-6')} onClick={() => !disabled && handleSubmit(problemIndex)}>
             <PrimaryButton text='繼續' variant='contained' disabled={disabled} />
           </div>
         </div>

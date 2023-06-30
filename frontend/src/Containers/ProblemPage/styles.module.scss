@@ -91,16 +91,6 @@ input:checked + label {
 
 .options {
   z-index: 10;
-  animation: slideIn-easeOutElastic 1s linear normal;
-
-  @keyframes slideOut {
-    from {
-      left: 0;
-    }
-    to {
-      left: -100vw;
-    }
-  }
 
   @keyframes slideIn-easeOutElastic {
     0% {
@@ -134,6 +124,10 @@ input:checked + label {
     100% {
       transform: translateX(-100%+100%);
     }
+  }
+
+  & > div {
+    animation: slideIn-easeOutElastic 1s;
   }
 }
 
