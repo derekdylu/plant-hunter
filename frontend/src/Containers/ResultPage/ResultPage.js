@@ -18,15 +18,16 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
 
     resList.sort((a, b) => b.score - a.score || orderAdjustmentList.indexOf(a.index) - orderAdjustmentList.indexOf(b.index))
     setResult(resList[0].index)
+    postResult(resList[0].index)
   }
 
-  const postResult = async () => {
+  const postResult = async (val) => {
     const response = await fetch('/.netlify/functions/post_result', {
       method: 'POST',
       body: JSON.stringify({
         "timestamp": new Date().toISOString(),
         "selection": JSON.parse(localStorage.getItem('ops')),
-        "result": result
+        "result": val
       })
     })
     const data = await response.json()
@@ -35,7 +36,6 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
 
   useEffect(() => {
     calculate()
-    postResult()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
