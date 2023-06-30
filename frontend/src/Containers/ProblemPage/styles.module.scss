@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  overflow: hidden;
 }
 
 .background {
@@ -27,7 +28,7 @@
   background-position: center bottom;
 
   @media screen and (max-width: 1024px) {
-    top: -32px;
+    top: -72px;
   }
 }
 
@@ -158,8 +159,8 @@ input:checked + label {
   bottom: 0;
 
   @media screen and (max-width: 1024px) {
-    left: -100px;
-    bottom: -100px;
+    left: -72px;
+    bottom: -72px;
   }
 
   @keyframes slideIn {
