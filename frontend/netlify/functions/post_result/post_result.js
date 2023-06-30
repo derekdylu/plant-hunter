@@ -1,14 +1,9 @@
 const { MongoClient } = require("mongodb");
 require('dotenv').config();
 
-const mongoClient = new MongoClient(process.env.MONGODB_URI,  { useNewUrlParser: true });
+const mongoClient = new MongoClient(process.env.MONGO_URI);
 
-const cliecntPromise = mongoClient.connect((error, client) => {
-  if(error){
-    return console.log("Unable to connect to database")
-  }
-  console.log("Connected correctly")
-});
+const cliecntPromise = mongoClient.connect();
 
 const handler = async (event) => {
   try {
