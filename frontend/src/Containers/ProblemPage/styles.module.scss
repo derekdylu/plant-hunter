@@ -151,12 +151,16 @@ input:checked + label {
   bottom: 42px;
 }
 
-.puppetBottom {
+.bottomPuppet {
   position: absolute;
   z-index: 5;
+  left: 0;
   bottom: 0;
-  left: -50px;
-  width: 75vw;
+
+  @media screen and (max-width: 1024px) {
+    left: -100px;
+    bottom: -100px;
+  }
 
   @keyframes slideIn {
     from {
@@ -177,11 +181,10 @@ input:checked + label {
   }
 }
 
-.puppetTop {
+.topPuppet {
   position: absolute;
   z-index: 5;
   top: 0;
-  left: 50vw;
 
   @keyframes slideIn {
     from {

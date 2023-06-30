@@ -2,6 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    fontFamily: {
+      'body': ['"Noto Sans TC"'],
+      'mono': ['"Dela Gothic One"']
+    },
     fontSize: {
       'xs': '12px',
       'sm': '14px',

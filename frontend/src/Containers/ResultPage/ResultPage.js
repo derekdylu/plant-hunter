@@ -1,31 +1,8 @@
-import React, { useState } from 'react'
-
-const default_resultList = [
-  {
-    "index": 0,
-    "title": "a type people",
-    "description": "a type people"
-  },
-  {
-    "index": 1,
-    "title": "a type people",
-    "description": "a type people"
-  },
-  {
-    "index": 2,
-    "title": "a type people",
-    "description": "a type people"
-  },
-  {
-    "index": 3,
-    "title": "a type people",
-    "description": "a type people"
-  }
-]
+import React, { useState, useEffect } from 'react'
 
 const default_orderAdjustmentList = [1,0,2,3]
 
-const ResultPage = ({resultList = default_resultList, orderAdjustmentList = default_orderAdjustmentList}) => {
+const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentList}) => {
   const [result, setResult] = useState(-1)
   const selected = JSON.parse(localStorage.getItem('plant-hunter'))
   console.log("result page", selected) // NOTE
@@ -46,7 +23,9 @@ const ResultPage = ({resultList = default_resultList, orderAdjustmentList = defa
     setResult(resList[0].index)
   }
 
-  calculate()
+  useEffect(() => {
+    calculate()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>result: {result}</div>
