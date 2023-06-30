@@ -13,6 +13,7 @@ const StartPage = ({handleNextPage}) => {
 
   localStorage.clear()
   localStorage.setItem("plant-hunter", JSON.stringify([]))
+  localStorage.setItem("ops", JSON.stringify([]))
 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>

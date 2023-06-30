@@ -45,14 +45,14 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
   const handleSubmit = (problemIndex) => {
     if (select.length === 0) { return }
 
-    console.log("clk", problemIndex, select) // NOTE
-    let prev = localStorage.getItem("plant-hunter")
-    let selected = JSON.parse(prev)
+    let selected = JSON.parse(localStorage.getItem("plant-hunter"))
+    let ops = JSON.parse(localStorage.getItem("ops"))
 
     select.map(s => selected = selected.concat(options[s].score))
+    ops = ops.concat(select)
 
+    localStorage.setItem("ops", JSON.stringify(ops))
     localStorage.setItem("plant-hunter", JSON.stringify(selected))
-    console.log("selected", localStorage.getItem("plant-hunter")) // NOTE
     handleNextPage();
 
     setSelect([])
