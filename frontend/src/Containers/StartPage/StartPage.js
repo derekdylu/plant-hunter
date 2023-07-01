@@ -18,8 +18,8 @@ const StartPage = ({handleNextPage}) => {
 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>
-      <div className={classnames(styles.bottomLeft)}>.</div>
-      <div className={classnames(styles.bottomRight)}>.</div>
+      <div className={classnames(styles.bottomLeft)}></div>
+      <div className={classnames(styles.bottomRight)}></div>
       <div className={classnames('flex flex-row justify-center items-center')}>
         <div className={classnames(styles.button)} onClick={() => handleNextPage()}>
           <PrimaryButton text='開始探索'/>
