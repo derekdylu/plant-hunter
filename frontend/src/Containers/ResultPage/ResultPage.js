@@ -68,11 +68,6 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
   const selected = JSON.parse(localStorage.getItem('plant-hunter'))
   const [disable, setDisable] = useState(true)
 
-  const opts = {
-    height: 'auto',
-    width: 'auto',
-  }
-
   const wait = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
   }

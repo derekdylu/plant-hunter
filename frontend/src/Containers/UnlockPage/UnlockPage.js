@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import classnames from 'classnames'
 import html2canvas from 'html2canvas';
 
 import styles from './styles.module.scss'
 
 import background from '../../Assets/StartPage/background.png'
-import pr_m from '../../Assets/StartPage/middle paper.png'
 import logotype from '../../Assets/StartPage/logotype.png'
 
-import cardbaord from '../../Assets/ResultPage/cardboard.png'
 import poster from '../../Assets/ResultPage/poster.png'
 import flower1 from '../../Assets/ResultPage/台灣水玉杯.png'
 import flower2 from '../../Assets/ResultPage/桃紅蝴蝶蘭.png'
@@ -73,17 +71,12 @@ const flowerContent = [
 ]
 
 const UnlockPage = ({result = 0}) => {
-  const [isRendered, setIsRendered] = useState(false)
-  const [isLoading, setLoading] = useState(false)
 
   const renderImage = () => {
-    setLoading(true)
     let render = document.getElementById('renderer')
     html2canvas(document.querySelector("#capture")).then(canvas => {
       let dataURL = canvas.toDataURL("image/png")
       render.innerHTML = "<img src='" + dataURL + "' alt='render' width='100%' />"
-      setIsRendered(true)
-      setLoading(false)
     });
   }
 
