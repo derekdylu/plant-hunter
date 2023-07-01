@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import html2canvas from 'html2canvas';
 
 import styles from './styles.module.scss'
 
@@ -71,17 +70,8 @@ const flowerContent = [
 ]
 
 const UnlockPage = ({result = 0}) => {
-
-  const renderImage = () => {
-    let render = document.getElementById('renderer')
-    html2canvas(document.querySelector("#capture")).then(canvas => {
-      let dataURL = canvas.toDataURL("image/png")
-      render.innerHTML = "<img src='" + dataURL + "' alt='render' width='100%' />"
-    });
-  }
-
   return (
-    <div id="capture" className={classnames('container w-screen')}>
+    <div className={classnames('container w-screen')}>
       <div className={classnames('flex flex-col w-screen items-center justify-start px-6')}>
         <div className={classnames('flex flex-row w-full items-start')}>
           <img src={logotype} alt="logo" className={classnames('w-24 mt-4 mb-4')}/>
@@ -124,11 +114,9 @@ const UnlockPage = ({result = 0}) => {
           </div>
         </div>
 
-        <div onClick={() => renderImage()}>
+        <div onClick={() => console.log("download")}>
           <PrimaryButton text='下載結果' variant='secondary'/>
         </div>
-
-        <div id="renderer"></div>
       </div>
 
       <div className={classnames(styles.promotion, 'flex flex-col w-screen items-center justify-start px-6 pb-16')}>
