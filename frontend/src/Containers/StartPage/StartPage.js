@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import styles from './styles.module.scss'
+import { Link } from 'react-router-dom'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
@@ -23,9 +24,11 @@ const StartPage = ({handleNextPage}) => {
         <div className={classnames(styles.button)} onClick={() => handleNextPage()}>
           <PrimaryButton text='開始探索'/>
         </div>
-        {/* <img src={pr_m} className={classnames(tutorial?styles.pr_m_t:styles.pr_m)} alt='pr_m' /> */}
+        <div className={classnames(styles.terms, 'text-sm')}>
+          開始探索後您即同意本站之<Link to="/terms" className='underline'>使用條款</Link>
+        </div>
         <img src={pr_m} className={classnames(styles.pr_m)} alt='pr_m' />
-        <img src={logotype} className={classnames(styles.logotype)} alt='logotype'/>
+        <img src={logotype} className={classnames(styles.logotype)} alt='logotype' />
       </div>
       <div className={classnames(styles.middleRight)}></div>
       <div className={classnames(styles.topRight)}></div>

@@ -81,7 +81,8 @@
 }
 
 input:checked + label {
-  
+  transform: scale(1.05);
+  filter: drop-shadow(0px 0px 5px #FCCF60);
 }
 
 .optionsWrapper {
@@ -127,13 +128,7 @@ input:checked + label {
   }
 
   & > div {
-    animation: slideIn-easeOutElastic 1s;
-  }
-}
-
-.option {
-  &:active {
-    
+    animation: slideIn-easeOutElastic 1.25s;
   }
 }
 
@@ -147,55 +142,83 @@ input:checked + label {
   z-index: 5;
   left: 0;
   bottom: 0;
+  animation: slideUp 1.5s ease-out forwards;
 
   @media screen and (max-width: 1024px) {
     left: -72px;
     bottom: -72px;
   }
 
-  @keyframes slideIn {
+  @keyframes slideUp {
     from {
       bottom: -100vh;
     }
     to {
       bottom: 0;
-    }
-  }
-
-  @keyframes slideOut {
-    from {
-      bottom: 0;
-    }
-    to {
-      bottom: -100vh;
     }
   }
 }
 
-.topPuppet {
-  position: absolute;
-  z-index: 5;
-  top: 0;
+.problemTitle {
+  transform: translateX(-200%);
+	opacity: 0;
+	animation: slideIn 1.5s ease-out forwards;
 
   @keyframes slideIn {
-    from {
-      top: -100vh;
+    20% {
+      opacity: 0;
     }
-    to {
-      top: 0;
+    60% {
+      transform: translateX(-5%);
     }
-  }
-
-  @keyframes slideOut {
-    from {
-      top: 0;
+    75% {
+      transform: translateX(2);
     }
-    to {
-      top: -100vh;
+    100% {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }
 
 .button {
   z-index: 10;
+
+  @keyframes slideIn-easeOutElastic {
+    0% {
+      transform: translateX(0%+100%);
+    }
+  
+    16% {
+      transform: translateX(-112.27%+100%);
+    }
+  
+    28% {
+      transform: translateX(-96.88%+100%);
+    }
+  
+    44% {
+      transform: translateX(-102.63%+100%);
+    }
+  
+    59% {
+      transform: translateX(-99.36%+100%);
+    }
+  
+    73% {
+      transform: translateX(-100.58%+100%);
+    }
+  
+    88% {
+      transform: translateX(-99.8%+100%);
+    }
+  
+    100% {
+      transform: translateX(-100%+100%);
+    }
+  }
+
+  & > div {
+    animation: slideIn-easeOutElastic 2s;
+  }
 }

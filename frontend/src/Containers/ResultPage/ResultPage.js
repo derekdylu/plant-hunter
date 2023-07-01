@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import ReactPlayer from 'react-player'
+import { Link } from 'react-router-dom'
 
 import styles from './styles.module.scss'
 
@@ -109,7 +110,9 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
     <div className={classnames('container mx-auto')}>
       <div className={classnames('flex flex-col w-full items-center justify-start px-6 pb-40')}>
         <div className={classnames('flex flex-row w-full items-start')}>
-          <img src={logotype} alt="logo" className={classnames('w-24 mt-4 mb-4')}/>
+          <Link to="/">
+            <img src={logotype} alt="logo" className={classnames('w-24 mt-4 mb-4')}/>
+          </Link>
         </div>
 
         <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-16'>

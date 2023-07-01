@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import { Link } from 'react-router-dom'
 
 import styles from './styles.module.scss'
 
@@ -74,7 +75,9 @@ const UnlockPage = ({result = 0}) => {
     <div className={classnames('container w-screen')}>
       <div className={classnames('flex flex-col w-screen items-center justify-start px-6')}>
         <div className={classnames('flex flex-row w-full items-start')}>
-          <img src={logotype} alt="logo" className={classnames('w-24 mt-4 mb-4')}/>
+          <Link to="/">
+            <img src={logotype} alt="logo" className={classnames('w-24 mt-4 mb-4')}/>
+          </Link>
         </div>
 
         <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-16'>
@@ -114,9 +117,9 @@ const UnlockPage = ({result = 0}) => {
           </div>
         </div>
 
-        <div onClick={() => console.log("download")}>
+        <Link to={"/" + result + ".png"} target="_blank">
           <PrimaryButton text='下載結果' variant='secondary'/>
-        </div>
+        </Link>
       </div>
 
       <div className={classnames(styles.promotion, 'flex flex-col w-screen items-center justify-start px-6 pb-16')}>
