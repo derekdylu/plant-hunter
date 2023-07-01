@@ -18,7 +18,7 @@ const Stats = () => {
         show &&
         <div className='flex flex-col items-center justify-center my-2 mx-4 gap-2'>
           <div className='text-center'>
-            請先<Link to="https://login.retool.com/" target='_blank'><span className='text-blue-800 font-bold mx-1 hover:underline'>登入</span></Link>管理者 Google 帳號，再返回重新整理此頁面。<span className='text-neutral-500 mx-1 hover:underline' onClick={() => setShow(false)}>隱藏</span>
+            請先<Link to="https://login.retool.com/" target='_blank'><span className='text-blue-800 font-bold mx-1 hover:underline'>於此</span></Link>透過點選 Google 帳號登入管理者帳號，再返回重新整理此頁面。<span className='text-neutral-500 mx-1 hover:underline' onClick={() => setShow(false)}>隱藏</span>
           </div>
         </div>
       }

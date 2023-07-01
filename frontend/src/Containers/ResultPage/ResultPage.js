@@ -110,7 +110,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
     <div className={classnames('container mx-auto')}>
       <div className={classnames('flex flex-col w-full items-center justify-start px-6 pb-40')}>
         <div className={classnames('flex flex-row w-full items-start')}>
-          <Link to="/">
+          <Link to="/" onClick={() => window.location.reload()}>
             <img src={logotype} alt="logo" className={classnames('w-24 mt-4 mb-4')}/>
           </Link>
         </div>

@@ -75,7 +75,7 @@ const UnlockPage = ({result = 0}) => {
     <div className={classnames('container w-screen')}>
       <div className={classnames('flex flex-col w-screen items-center justify-start px-6')}>
         <div className={classnames('flex flex-row w-full items-start')}>
-          <Link to="/">
+          <Link to="/" onClick={() => window.location.reload()}>
             <img src={logotype} alt="logo" className={classnames('w-24 mt-4 mb-4')}/>
           </Link>
         </div>
