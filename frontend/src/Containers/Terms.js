@@ -14,7 +14,7 @@ const content = [
 
 const Terms = () => {
   return (
-    <div className='container mx-auto pt-8 px-8'>
+    <div className='container mx-auto pt-0 px-8'>
       <div className={classnames('flex flex-row w-full items-center justify-center')}>
         <Link to="/">
           <img src={logotype} alt="logo" className={classnames('w-64 mt-4 mb-4')}/>
