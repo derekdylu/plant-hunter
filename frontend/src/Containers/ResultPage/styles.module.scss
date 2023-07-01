@@ -1,0 +1,29 @@
+.background {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: fill;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.logotype {
+  position:absolute;
+  z-index: 1;
+  width: 120px;
+  height: 72px;
+}
+
+.flower {
+  max-width: 400px;
+}
+
+.title {
+  display: flex;
+  transform: rotate(-5deg);
+  background: #FCCF60;
+  box-shadow: 7px 7px 0px 0px #000; 
+}

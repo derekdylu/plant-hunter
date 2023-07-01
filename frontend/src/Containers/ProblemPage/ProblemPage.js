@@ -115,6 +115,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
               options?.map((option, index) => {
                 return (
                   <div key={problemIndex.toString() + index.toString()}>
+                    
                     <input type="checkbox" id={index} style={{ "opacity": 0, "display": "none" }}></input>
                     <label htmlFor={index} className={classnames(styles.option, `flex flex-col items-center ${option.image === null ? "h-16":"h-auto"}`)} onClick={() => handleClick(index)}>
                       {
@@ -131,7 +132,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
             }
           </div>
           <div className={classnames(styles.button, 'mt-2 lg:mt-6')} onClick={() => !disabled && handleSubmit(problemIndex)}>
-            <PrimaryButton text='繼續' variant='contained' disabled={disabled} />
+            <PrimaryButton text='繼續' disabled={disabled} />
           </div>
         </div>
       </div>

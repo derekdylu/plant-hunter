@@ -81,7 +81,7 @@
 }
 
 input:checked + label {
-  filter: drop-shadow(0 0 4px blue);
+  
 }
 
 .optionsWrapper {
@@ -132,12 +132,8 @@ input:checked + label {
 }
 
 .option {
-  &:hover {
-    filter: drop-shadow(0 0 4px red);
-  }
-
   &:active {
-    filter: drop-shadow(0 0 4px blue);
+    
   }
 }
 

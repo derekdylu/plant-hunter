@@ -1,12 +1,16 @@
-.background {
+.wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.backCurtain {
   position: absolute;
   z-index: 0;
   bottom: 0;
-  width: 100vw;
+  width: 305vh;
+  min-width: 100vw;
+  max-width: 205vh;
   height: 133vh;
-  background-size: fill;
-  background-repeat: repeat;
-  background-position: center;
 }
 
 .bottomCurtain {

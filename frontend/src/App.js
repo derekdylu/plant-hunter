@@ -5,6 +5,7 @@ import StartPage from './Containers/StartPage/StartPage';
 import TutorialPage from './Containers/TutorialPage/TutorialPage';
 import ProblemPage from './Containers/ProblemPage/ProblemPage';
 import ResultPage from './Containers/ResultPage/ResultPage';
+import UnlockPage from './Containers/UnlockPage/UnlockPage';
 
 import Q1_A from './Assets/ProblemPage/Q1/Q1_A.png';
 import Q1_B from './Assets/ProblemPage/Q1/Q1_B.png';
@@ -304,9 +305,10 @@ const data = [
 
 
 function App() {
-  const [phase, setPhase] = useState(0); // 0, 1, 2, 3
-  const [problem, setProblem] = useState(0); // 0, 1, 2, 3 ...
+  const [phase, setPhase] = useState(0); // 0, 1, 2, 3, 4
+  const [problem, setProblem] = useState(0); // 0, 1, 2, 3, 4, 5...
   const [resultList, setResultList] = useState([])
+  const [result, setResult] = useState(0)
 
   const handleNextPage = () => {
     if (phase === 0) {
@@ -314,6 +316,10 @@ function App() {
     }
     if (phase === 1) {
       setPhase(2);
+    }
+    if (phase === 3) {
+      setResult(JSON.parse(localStorage.getItem('result')))
+      setPhase(4);
     }
     if (phase === 2 && problem === data.length - 1) {
       setResultList(JSON.parse(localStorage.getItem('plant-hunter')))
@@ -341,7 +347,9 @@ function App() {
                         /> 
       }
 
-      { phase === 3 && <ResultPage resultList={resultList} /> }
+      { phase === 3 && <ResultPage resultList={resultList} handleNextPage={handleNextPage} /> }
+
+      { phase === 4 && <UnlockPage result={result} /> }
     </>
   );
 }
