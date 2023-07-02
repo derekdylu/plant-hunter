@@ -12,6 +12,8 @@ import flower1 from '../../Assets/ResultPage/台灣水玉杯.png'
 import flower2 from '../../Assets/ResultPage/桃紅蝴蝶蘭.png'
 import flower3 from '../../Assets/ResultPage/台灣喜普鞋蘭.png'
 import flower4 from '../../Assets/ResultPage/台灣野牡丹藤.png'
+import lock from '../../Assets/ResultPage/lock.png'
+import arrow from '../../Assets/ResultPage/arrow.gif'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
@@ -145,14 +147,20 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
             }
           </div>
         </div>
-
+        
         <div className={classnames(`${disable?"animate-bounce":"animate-none"}`)}>
-          <div className='text-center text-white'>
-            想知道屬於你的植物性格與最佳拍檔是誰嗎？
+        <div className={classnames('flex flex-row items-center justify-center mb-2')}>
+          <img src={lock} alt="lock" className={classnames('w-10 h-10 mr-4')}/>
+          <div className={classnames('flex flex-col items-center justify-center')}>
+              <div className='text-center text-white'>
+                想知道誰是你的最佳拍檔？
+              </div>
+              <div className='text-center text-white'>
+                觀看《花開富貴》預告解鎖！
+              </div>
           </div>
-          <div className='text-center text-white'>
-            觀看《花開富貴》預告立馬解鎖！
-          </div>
+          <img src={arrow} alt="arrow" className={classnames('w-10 h-10 ml-2')}/>
+        </div>
         </div>
 
         <div className='mt-4 mb-8'>

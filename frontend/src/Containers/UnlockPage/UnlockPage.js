@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 
@@ -71,6 +71,10 @@ const flowerContent = [
 ]
 
 const UnlockPage = ({result}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className={classnames('container w-screen')}>
       <div className={classnames('flex flex-col w-screen items-center justify-start px-6')}>
