@@ -43,3 +43,25 @@
     100% { transform: rotate(0deg); }
  } 
 }
+
+.caption {
+  transform: translateX(-200%);
+	opacity: 0;
+	animation: slideIn 1.5s ease-out forwards;
+
+  @keyframes slideIn {
+    20% {
+      opacity: 0;
+    }
+    60% {
+      transform: translateX(-5%);
+    }
+    75% {
+      transform: translateX(2);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

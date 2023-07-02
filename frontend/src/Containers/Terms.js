@@ -2,7 +2,11 @@ import React from 'react'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 
+import styles from './StartPage/styles.module.scss'
+
 import logotype from '../Assets/StartPage/logotype.png'
+import background from '../Assets/StartPage/background_terms.png'
+import pr_m from '../Assets/StartPage/middle paper.png'
 
 const content = [
   "使用條款1",
@@ -14,10 +18,10 @@ const content = [
 
 const Terms = () => {
   return (
-    <div className='container mx-auto pt-0 px-8'>
+    <div className='container mx-auto px-8'>
       <div className={classnames('flex flex-row w-full items-center justify-center')}>
         <Link to="/">
-          <img src={logotype} alt="logo" className={classnames('w-64 mt-4 mb-4')}/>
+          <img src={logotype} alt="logo" className={classnames('w-36 mt-4 mb-20')} style={{ zIndex: "-2"}} />
         </Link>
       </div>
       <Link to="/" className='underline'>
@@ -38,6 +42,8 @@ const Terms = () => {
           </div>
         ))}
       </div>
+      <img src={pr_m} alt="pr_m" className={classnames(styles.pr_m)} style={{ height: "90vh", left: "-50vw", zIndex: "-1" }}/>
+      <img src={background} alt="background" className={classnames(styles.background)} style={{ top: "0", left: "0", zIndex: "-3" }}/>
     </div>
   )
 }

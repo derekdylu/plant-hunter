@@ -70,7 +70,7 @@ const flowerContent = [
   }
 ]
 
-const UnlockPage = ({result = 0}) => {
+const UnlockPage = ({result}) => {
   return (
     <div className={classnames('container w-screen')}>
       <div className={classnames('flex flex-col w-screen items-center justify-start px-6')}>
