@@ -88,7 +88,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>
-      <div className={classnames(styles.problemWrapper, 'flex flex-col items-center justify-center mt-6 lg:mt-12 px-6')}>
+      <div className={classnames(styles.problemWrapper, 'flex flex-col items-center justify-center mt-4 lg:mt-8 px-6')}>
         <div className={classnames('flex flex-row items-center justify-center mb-3')}>
           <div className={classnames('text-lg font-medium')}>{problemIndex+1}</div>
           <div className={classnames('text-base font-medium ml-1')}>/10</div>

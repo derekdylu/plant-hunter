@@ -86,11 +86,11 @@
 .pr_m {
   position: absolute;
   z-index: 5;
-  bottom: 0;
-  width: 137vh;
+  top: 300px;
+  width: calc((100vh - 300px)*2.29);
   min-width: 100vw;
-  max-width: 137vh;;
-  height: 60vh;
+  max-width: calc((100vh - 300px)*2.29);
+  height: calc(100vh - 300px);
 }
 
 // .pr_m_t {
@@ -115,13 +115,13 @@
 .button {
   position: absolute;
   z-index: 20;
-  top: 55vh;
+  top: calc(300px + (100vh - 300px) * 0.18);
 }
 
 .terms {
   position: absolute;
   z-index: 20;
-  top: 65vh;
+  top: calc(365px + (100vh - 300px) * 0.18);
 }
 
 .bottomRight {
