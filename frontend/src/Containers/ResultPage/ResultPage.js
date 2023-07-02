@@ -168,10 +168,10 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
           />
         </div>
         
-        <div onClick={() => handleNextPage()}>
+        <div onClick={() => !disable && handleNextPage()}>
           <PrimaryButton text='解鎖' disabled={disable} />
         </div>
-        
+
       </div>
       <img src={background} className={classnames(styles.background)} alt='background' />
     </div>
