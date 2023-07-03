@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
+import { FacebookShareButton, FacebookIcon, LineShareButton, LineIcon } from 'react-share';
 
 import styles from './styles.module.scss'
 
@@ -124,6 +125,22 @@ const UnlockPage = ({result}) => {
         <Link to={"/" + result + ".png"} target="_blank">
           <PrimaryButton text='下載結果' variant='secondary'/>
         </Link>
+
+        <div className='flex flex-row items-center justify-center m-4 gap-4'>
+          <FacebookShareButton
+            url={"https://gx-plant-hunter.netlify.app/"}
+            hashtag={"#"+flowerContent[result].title}
+          >
+            <FacebookIcon size={36} round />
+          </FacebookShareButton>
+
+          <LineShareButton
+            url={"https://gx-plant-hunter.netlify.app/"}
+            title={"一起來發現你的專屬植物吧！"}
+          >
+            <LineIcon size={36} round />
+          </LineShareButton>
+        </div>
       </div>
 
       <div className={classnames(styles.promotion, 'flex flex-col w-screen items-center justify-start px-6 pb-16')}>
