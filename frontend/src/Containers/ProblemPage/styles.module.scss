@@ -90,6 +90,10 @@ input:checked + label {
   height: 200px;
 }
 
+.optionGridImage {
+  max-height: calc((100vh - 300px) / 2);
+}
+
 .options {
   z-index: 10;
 

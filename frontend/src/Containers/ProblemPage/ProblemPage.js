@@ -122,7 +122,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
                         option.image === null ?
                           <img src={defaultImageList[index % 2]} className={classnames(styles.optionImage)} alt='optionImage' />
                           :
-                          <img src={option.image} className={classnames(styles.optionImage)} alt='optionImage' />
+                          <img src={option.image} className={classnames(styles.optionGridImage)} alt='optionImage' />
                       }
                       <div className={classnames(styles.optionTitle)}>{option.title}</div>
                     </label>
