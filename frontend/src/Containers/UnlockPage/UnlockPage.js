@@ -5,7 +5,7 @@ import { FacebookShareButton, LineShareButton } from 'react-share';
 
 import styles from './styles.module.scss'
 
-import background from '../../Assets/StartPage/background.png'
+import background from '../../Assets/StartPage/background.jpg'
 import logotype from '../../Assets/StartPage/logotype.png'
 
 import poster from '../../Assets/ResultPage/poster.png'

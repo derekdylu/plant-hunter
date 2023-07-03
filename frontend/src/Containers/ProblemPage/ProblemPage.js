@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
-import background from '../../Assets/StartPage/background.png'
+import background from '../../Assets/StartPage/background.jpg'
 import default_image_1 from "../../Assets/ProblemPage/Base/strip1.png"
 import default_image_2 from "../../Assets/ProblemPage/Base/strip2.png"
 

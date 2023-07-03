@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import styles from './styles.module.scss'
 
-import background from '../../Assets/StartPage/background.png'
+import background from '../../Assets/StartPage/background.jpg'
 import logotype from '../../Assets/StartPage/logotype.png'
 
 import flower1 from '../../Assets/ResultPage/台灣水玉杯.png'

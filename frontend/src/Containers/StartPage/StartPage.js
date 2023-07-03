@@ -7,7 +7,7 @@ import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
 import logotype from '../../Assets/StartPage/logotype.png'
 import pr_m from '../../Assets/StartPage/middle paper.png'
-import background from '../../Assets/StartPage/background.png'
+import background from '../../Assets/StartPage/background.jpg'
 
 const StartPage = ({handleNextPage}) => {
   // const [tutorial, setTutorial] = useState(false)
