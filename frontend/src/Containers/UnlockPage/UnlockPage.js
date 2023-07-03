@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react'
+import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
-import { FacebookShareButton, FacebookIcon, LineShareButton, LineIcon } from 'react-share';
+import { FacebookShareButton, LineShareButton } from 'react-share';
 
 import styles from './styles.module.scss'
 
@@ -19,7 +19,14 @@ import small2 from '../../Assets/ResultPage/蝴蝶.png'
 import small3 from '../../Assets/ResultPage/喜普鞋.png'
 import small4 from '../../Assets/ResultPage/牡丹.png'
 
+import copyBTN from '../../Assets/Elements/copy-BTN.svg'
+import doneBTN from '../../Assets/Elements/copy-BTN-done.svg'
+import fbBTN from '../../Assets/Elements/fb-BTN.svg'
+import lineBTN from '../../Assets/Elements/line-BTN.svg'
+
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
+
+const mainURL = "https://gx-plant-hunter.netlify.app/"
 
 const flowerList = [flower1, flower2, flower3, flower4]
 const smallList = [small1, small2, small3, small4]
@@ -72,9 +79,19 @@ const flowerContent = [
 ]
 
 const UnlockPage = ({result}) => {
+  const [alert, setAlert] = useState(false)
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  useEffect(() => {
+    if (alert) {
+      setTimeout(() => {
+        setAlert(false)
+      }, 1000)
+    }
+  }, [alert])
 
   return (
     <div className={classnames('container w-screen')}>
@@ -126,20 +143,31 @@ const UnlockPage = ({result}) => {
           <PrimaryButton text='下載結果' variant='secondary'/>
         </Link>
 
-        <div className='flex flex-row items-center justify-center m-4 gap-4'>
+        <div className='flex flex-row items-center justify-center mt-8 gap-2'>
+          <div className='font-bold text-white mr-4'>
+            分享遊戲
+          </div>
           <FacebookShareButton
-            url={"https://gx-plant-hunter.netlify.app/"}
+            url={mainURL}
             hashtag={"#"+flowerContent[result].title}
           >
-            <FacebookIcon size={36} round />
+            <img src={fbBTN} alt="fb-share" width={40} height={40} />
           </FacebookShareButton>
 
           <LineShareButton
-            url={"https://gx-plant-hunter.netlify.app/"}
+            url={mainURL}
             title={"一起來發現你的專屬植物吧！"}
           >
-            <LineIcon size={36} round />
+            <img src={lineBTN} alt="line-share" width={40} height={40} />
           </LineShareButton>
+          <div onClick={() => {navigator.clipboard.writeText(mainURL); setAlert(true);}} style={{ cursor: "pointer" }} >
+            {
+              alert ?
+              <img src={doneBTN} alt="done-share" width={40} height={40} />
+              :
+              <img src={copyBTN} alt="copy-share" width={40} height={40} />
+            }
+          </div>
         </div>
       </div>
 
