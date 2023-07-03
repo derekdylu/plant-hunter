@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import classnames from 'classnames'
 import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom'
+import useWindowDimensions from '../../Hooks/useWindowDimensions'
 
 import styles from './styles.module.scss'
 
@@ -17,7 +18,9 @@ import arrow from '../../Assets/ResultPage/arrow.gif'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
-const DELAY = 0
+const DELAY = 15000
+const MAXWIDTH = 680
+const MD = 768
 
 const flowerList = [flower1, flower2, flower3, flower4]
 
@@ -35,7 +38,7 @@ const flowerContent = [
   {
     "index": 1,
     "title": "桃紅蝴蝶蘭",
-    "description": "桃紅蝴蝶蘭 (學名：Phalaenopsis equestris) 原生於菲律賓和台灣，因產於小蘭嶼而得名。1934 年有學者在小蘭嶼植物標本採集時，發現了極具玩賞價值的桃紅蝴蝶蘭，七零年代台灣種植蘭花風氣盛行，連小蘭嶼這種無人島上的都被採光光，就是紅顏薄命啦！。直到 2009 年，阿改參與屏科大計畫去小蘭嶼做資源調查，上到第四天終於找到了「夢幻物種」蘭嶼桃紅蝴蝶蘭，當時共計記錄到九株，是目前台灣僅餘的植株。為避免野生蘭在台灣消失，相關植物保育單位計劃進行復育工作，希望繁殖更多的小苗，並設法移植回原生地。",
+    "description": "桃紅蝴蝶蘭 (學名：Phalaenopsis equestris) 原生於菲律賓和台灣，因產於小蘭嶼而得名。1934 年有學者在小蘭嶼植物標本採集時，發現了極具玩賞價值的桃紅蝴蝶蘭，七零年代台灣種植蘭花風氣盛行，連小蘭嶼這種無人島上的都被採光光，就是紅顏薄命啦！直到 2009 年，阿改參與屏科大計畫去小蘭嶼做資源調查，上到第四天終於找到了「夢幻物種」蘭嶼桃紅蝴蝶蘭，當時共計記錄到九株，是目前台灣僅餘的植株。為避免野生蘭在台灣消失，相關植物保育單位計劃進行復育工作，希望繁殖更多的小苗，並設法移植回原生地。",
     "characteristic": "你內在外貌都出眾，很受大家喜歡，是人人都愛的萬人迷，也樂於展現自己。人們往往被你的熱情和開朗所吸引。",
     "partner": {
       "title": "台灣喜普鞋蘭",
@@ -70,6 +73,9 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
   const [result, setResult] = useState(-1)
   const selected = JSON.parse(localStorage.getItem('plant-hunter'))
   const [disable, setDisable] = useState(true)
+  const [waiting, setWaiting] = useState(false)
+  const { width } = useWindowDimensions()
+  const unlock = useRef(null)
 
   const wait = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -113,11 +119,11 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
       <div className={classnames('flex flex-col w-full items-center justify-start px-6 pb-40')}>
         <div className={classnames('flex flex-row w-full items-start')}>
           <Link to="/" onClick={() => window.location.reload()}>
-            <img src={logotype} alt="logo" className={classnames('w-24 mt-4 mb-4')}/>
+            <img src={logotype} alt="logo" className={classnames('w-24 md:w-52 mt-4 mb-4 md:mb-0')}/>
           </Link>
         </div>
 
-        <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-16'>
+        <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-8'>
           <div className='flex flex-col items-center justify-center md:items-center md:justify-center'>
             { 
               result === -1 ?
@@ -132,7 +138,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
             }
           </div>
 
-          <div className={classnames('flex flex-col w-full items-start md:justify-center mt-5 mb-16 md:my-0')}>
+          <div className={classnames('flex flex-col w-full items-start md:justify-center mt-5 md:my-0')}>
             {
               result !== -1 &&
               <div className={classnames(styles.title, 'font-bold p-2 mb-1')}>
@@ -145,39 +151,48 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
                 {flowerContent[result].description}
               </div>
             }
-          </div>
-        </div>
-        
-        <div className={classnames(`${disable?"animate-bounce":"animate-none"}`)}>
-        <div className={classnames('flex flex-row items-center justify-center mb-2')}>
-          <img src={lock} alt="lock" className={classnames('w-10 h-10 mr-4')}/>
-          <div className={classnames('flex flex-col items-center justify-center')}>
-              <div className='text-center text-white'>
-                想知道誰是你的最佳拍檔？
+
+            <div className={classnames(`flex flex-col items-center ${disable || waiting?"animate-bounce":"animate-none"} md:animate-none w-full md:my-6`)}>
+              <div className={classnames('flex flex-row items-center justify-center mt-12')}>
+                <img src={lock} alt="lock" className={classnames('w-10 h-10 md:w-5 md:h-5 mr-4 md:mr-2')}/>
+                <div className={classnames('flex flex-col items-center justify-center')}>
+                    <div className='text-center text-white'>
+                      想知道誰是你的最佳拍檔？
+                    </div>
+                    {
+                      width < MD &&
+                      <div className='text-center text-white'>
+                        觀看《花開富貴》預告解鎖！
+                      </div>
+                    }
+                </div>
+                { width < MD && <img src={arrow} alt="arrow" className={classnames('w-10 h-10 ml-2')}/>}
               </div>
-              <div className='text-center text-white'>
+              <div className='bg-primary-200 text-primary-900 font-bold py-3 px-4 active:bg-primary-100 rounded-full my-2' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
                 觀看《花開富貴》預告解鎖！
               </div>
+            </div>
           </div>
-          <img src={arrow} alt="arrow" className={classnames('w-10 h-10 ml-2')}/>
-        </div>
         </div>
 
         <div className='mt-4 mb-8'>
           <ReactPlayer
             url='https://youtu.be/Q65_LB3-ko4'
-            width={"80vw"}
-            height={"45vw"}
+            width={width > MAXWIDTH ? MAXWIDTH + "px" : "80vw"}
+            height={width > MAXWIDTH ? MAXWIDTH / 1.78 + "px" : "45vw"}
             muted={true}
             onStart={async() => {
+              setWaiting(true)
               await wait(DELAY)
               setDisable(false)
+              setWaiting(false)
             }}
           />
         </div>
         
-        <div onClick={() => !disable && handleNextPage()}>
-          <PrimaryButton text='解鎖' disabled={disable} />
+        <div onClick={() => !disable && handleNextPage()} ref={unlock}>
+          { !waiting && <PrimaryButton text='解鎖' disabled={disable} /> }
+          { waiting && <PrimaryButton text='再等等！' disabled={true} /> }
         </div>
 
       </div>

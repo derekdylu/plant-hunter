@@ -89,14 +89,14 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>
       <div className={classnames(styles.problemWrapper, 'flex flex-col items-center justify-center mt-4 lg:mt-8 px-6')}>
-        <div className={classnames('flex flex-row items-center justify-center mb-3')}>
-          <div className={classnames('text-lg font-medium')}>{problemIndex+1}</div>
-          <div className={classnames('text-base font-medium ml-1')}>/10</div>
+        <div className={classnames('flex flex-row items-end justify-center mb-3')}>
+          <div className={classnames('text-xl font-medium')}>{problemIndex+1}</div>
+          <div className={classnames('text-base font-medium ml-1')}>/ 10</div>
         </div>
         {
           problems?.map((problem, index) => {
             return (
-              <div className={classnames(styles.problemTitle, 'text-base font-medium')} key={problemIndex.toString() + index.toString()}>{problem}</div>
+              <div className={classnames(styles.problemTitle, 'text-base font-medium md:text-xl')} key={problemIndex.toString() + index.toString()}>{problem}</div>
             )
           })
         }
@@ -106,16 +106,13 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
       <div className={classnames(styles.bottomCurtain)}></div>
       <div className={classnames(styles.bottomRightCurtain)}></div>
       
-      <div className='absolute flex flex-col w-screen h-screen items-center justify-center pt-56 pb-36'>
+      <div className='absolute flex flex-col w-screen h-screen items-center justify-center pt-56 md:pt-68 pb-36 md:pb-20'>
         <div className='absolute flex flex-col w-4/5 lg:w-full h-full items-center justify-center'>
           <div className={classnames(styles.options, `${grid?"grid grid-cols-2 lg:grid-cols-4 items-center":"flex flex-col items-center"} justify-items-center`)}>
             {
               options?.map((option, index) => {
                 return (
                   <div key={problemIndex.toString() + index.toString()}>
-                    
-
-
                     <input type="checkbox" id={index} style={{ "opacity": 0, "display": "none" }}></input>
                     <label htmlFor={index} className={classnames(styles.option, `flex flex-col items-center ${option.image === null ? "h-16":"h-auto"}`)} onClick={() => handleClick(index)}>
                       {
@@ -131,7 +128,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
               })
             }
           </div>
-          <div className={classnames(styles.button, 'mt-2 lg:mt-6')} onClick={() => !disabled && handleSubmit(problemIndex)}>
+          <div className={classnames(styles.button, 'mt-6 md:mt-12')} onClick={() => !disabled && handleSubmit(problemIndex)}>
             <PrimaryButton text='繼續' disabled={disabled} />
           </div>
         </div>

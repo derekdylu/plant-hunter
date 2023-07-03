@@ -113,15 +113,15 @@
 // }
 
 .button {
-  position: absolute;
-  z-index: 20;
-  top: calc(300px + (100vh - 300px) * 0.18);
+  // position: absolute;
+  // z-index: 20;
+  // top: calc(300px + (100vh - 300px) * 0.18);
 }
 
-.terms {
+.start {
   position: absolute;
   z-index: 20;
-  top: calc(365px + (100vh - 272px) * 0.18);
+  top: calc(300px + (100vh - 200px) * 0.18);
 }
 
 .bottomRight {

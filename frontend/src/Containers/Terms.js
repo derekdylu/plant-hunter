@@ -16,8 +16,8 @@ const content = [
 
 const Terms = () => {
   return (
-    <div className={classnames(styles.background, 'h-screen')}>
-      <div className='container mx-auto px-8 h-full pb-16'>
+    <div className={classnames(styles.background, '')}>
+      <div className='container mx-auto px-8 pb-16'>
         <div className={classnames('flex flex-row items-center justify-center')}>
           <Link to="/">
             <img src={logotype} alt="logo" className={classnames('w-36 mt-4 mb-8')} style={{ zIndex: "-2"}} />
