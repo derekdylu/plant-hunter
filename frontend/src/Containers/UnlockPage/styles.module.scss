@@ -11,35 +11,10 @@
 }
 
 .promotion {
-  background-image: url('../../Assets/StartPage/middle\ paper.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-}
-
-.cardbaord {
-  position: absolute;
-  z-index: -1;
-  top: 1350px;
-  height: 33vw;
-  width: 100vw;
-
   background-image: url('../../Assets/ResultPage/cardboard.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-
-  @media screen and (min-width: 768px) {
-    top: 900px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    top: 800px;
-  }
-  
-  @media screen and (min-width: 1280px) {
-    top: 700px;
-  }
 }
 
 .logotype {

@@ -177,7 +177,6 @@ const UnlockPage = ({result}) => {
         </div>
       </div>
 
-      <div className={classnames(styles.cardbaord)}></div>
       <img src={background} className={classnames(styles.background)} alt='background' />
     </div>
   )
