@@ -8,6 +8,7 @@ import styles from './styles.module.scss'
 import background from '../../Assets/StartPage/background.jpg'
 import logotype from '../../Assets/StartPage/logotype.png'
 import scroll from '../../Assets/ResultPage/scroll.gif'
+import logo from '../../Assets/Elements/logo_tr.png'
 
 import fb from '../../Assets/Elements/fb.svg'
 import ig from '../../Assets/Elements/ig.svg'
@@ -121,10 +122,11 @@ const UnlockPage = ({result}) => {
   return (
     <div className={classnames(styles.container, 'container w-screen')}>
       <div className={classnames('flex flex-col w-screen items-center justify-start px-6')}>
-        <div className={classnames('flex flex-row w-full items-start')}>
+        <div className={classnames('flex flex-row w-full items-center justify-between')}>
           <Link to="/" onClick={() => window.location.reload()}>
             <img src={logotype} alt="logo" className={classnames('w-24 md:w-52 mt-4 mb-4 md:mb-0')}/>
           </Link>
+          <img src={logo} alt="logo" className='h-full' />
         </div>
 
         <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-16'>
@@ -213,8 +215,8 @@ const UnlockPage = ({result}) => {
           <PrimaryButton text='觀看影片'/>
         </div>
 
-        <div className='flex flex-col md:flex-row md:gap-8 md:mb-4'>
-          <img src={poster} alt="poster" className='mt-8 md:w-1/2'/>
+        <div className='flex flex-col md:flex-row md:gap-8 md:mb-4 items-center'>
+          <img src={poster} alt="poster" className='mt-8 md:w-1/2 h-fit'/>
 
           <div className='flex flex-col items-center md:justify-center'>
             <div className={classnames('flex flex-col w-full items-start mt-5 mb-8 max-w-md')}>
@@ -226,7 +228,7 @@ const UnlockPage = ({result}) => {
               </div>
             </div>
 
-            <div className={classnames('flex flex-col w-full items-start mt-5 mb-8 max-w-md')}>
+            <div className={classnames('flex flex-col w-full items-start mt-5 mb-0 max-w-md')}>
               <div className={classnames(styles.title2, 'font-bold text-lg text-primary-200 mt-4 p-2 mb-1')}>
                 關於《怪咖》計畫
               </div>

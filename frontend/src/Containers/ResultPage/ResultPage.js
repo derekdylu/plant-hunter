@@ -8,6 +8,7 @@ import styles from './styles.module.scss'
 
 import background from '../../Assets/StartPage/background.jpg'
 import logotype from '../../Assets/StartPage/logotype.png'
+import logo from '../../Assets/Elements/logo_tr.png'
 
 import flower1 from '../../Assets/ResultPage/台灣水玉杯.png'
 import flower2 from '../../Assets/ResultPage/桃紅蝴蝶蘭.png'
@@ -117,10 +118,11 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
   return (
     <div className={classnames('container mx-auto')}>
       <div className={classnames('flex flex-col w-full items-center justify-start px-6 pb-40')}>
-        <div className={classnames('flex flex-row w-full items-start')}>
+        <div className={classnames('flex flex-row w-full items-center justify-between')}>
           <Link to="/" onClick={() => window.location.reload()}>
             <img src={logotype} alt="logo" className={classnames('w-24 md:w-52 mt-4 mb-4 md:mb-0')}/>
           </Link>
+          <img src={logo} alt="logo" className='h-full' />
         </div>
 
         <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-8'>

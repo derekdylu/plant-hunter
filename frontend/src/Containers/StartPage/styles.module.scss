@@ -13,6 +13,15 @@
   background-position: center;
 }
 
+.foundLogo {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 252px;
+  height: 48px;
+}
+
 .logotype {
   position: absolute;
   z-index: 1;

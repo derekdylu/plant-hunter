@@ -8,6 +8,7 @@ import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 import logotype from '../../Assets/StartPage/logotype.png'
 import pr_m from '../../Assets/StartPage/middle paper.png'
 import background from '../../Assets/StartPage/background.jpg'
+import logo from '../../Assets/Elements/logo.png'
 
 const StartPage = ({handleNextPage}) => {
   // const [tutorial, setTutorial] = useState(false)
@@ -18,6 +19,7 @@ const StartPage = ({handleNextPage}) => {
 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>
+      <img src={logo} className={classnames(styles.foundLogo)} alt='logo' />
       <div className={classnames(styles.bottomLeft)}></div>
       <div className={classnames(styles.bottomRight)}></div>
       <div className={classnames('flex flex-row justify-center items-center')}>
