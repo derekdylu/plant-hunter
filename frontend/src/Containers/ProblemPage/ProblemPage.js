@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import classnames from 'classnames'
 import styles from './styles.module.scss'
+import useWindowDimensions from '../../Hooks/useWindowDimensions'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
@@ -36,9 +37,12 @@ const default_options = [
   }
 ]
 
+const MAX_HEIGHT = 650
+
 const ProblemPage = ({problemIndex, problems, options = default_options, grid = false, puppet = null, multiple = false, handleNextPage}) => {
   const [select, setSelect] = useState([])
   const [disabled, setDisabled] = useState(true)
+  const { height, ratio } = useWindowDimensions()
 
   const handleSubmit = (problemIndex) => {
     if (select.length === 0) { return }
@@ -108,11 +112,11 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
       
       <div className='absolute flex flex-col w-screen h-screen items-center justify-center pt-56 md:pt-68 pb-36 md:pb-20'>
         <div className='absolute flex flex-col w-4/5 lg:w-full h-full items-center justify-center'>
-          <div className={classnames(styles.options, `${grid?"grid grid-cols-2 lg:grid-cols-4 items-center":"flex flex-col items-center"} justify-items-center`)}>
+          <div className={classnames(styles.options, `${grid?"grid grid-cols-2 lg:grid-cols-4 items-center": (ratio > 1.5 && height < MAX_HEIGHT) ? "grid grid-cols-2 items-center gap-x-4" : "flex flex-col items-center"} justify-items-center`)}>
             {
               options?.map((option, index) => {
                 return (
-                  <div key={problemIndex.toString() + index.toString()}>
+                  <div key={problemIndex.toString() + index.toString()} className={classnames(`${ options.length % 2 !== 0 && index === options.length - 1 && "col-span-2" }`)}>
                     <input type="checkbox" id={index} style={{ "opacity": 0, "display": "none" }}></input>
                     <label htmlFor={index} className={classnames(styles.option, `flex flex-col items-center ${option.image === null ? "h-16":"h-auto"}`)} onClick={() => handleClick(index)}>
                       {
@@ -128,7 +132,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
               })
             }
           </div>
-          <div className={classnames(styles.button, 'mt-6 md:mt-12')} onClick={() => !disabled && handleSubmit(problemIndex)}>
+          <div className={classnames(styles.button, 'mt-3')} onClick={() => !disabled && handleSubmit(problemIndex)}>
             <PrimaryButton text='繼續' disabled={disabled} />
           </div>
         </div>

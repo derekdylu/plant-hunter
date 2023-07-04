@@ -14,7 +14,7 @@ const TutorialPage = ({handleNextPage}) => {
       <div className={classnames(styles.bottomCurtain)}></div>
 
       <div className={classnames('absolute flex flex-col w-full h-full items-center justify-center px-6 z-10 ')}>
-        <img src={tutorial} alt="tutorial" className={classnames(styles.image)} />
+        <img src={tutorial} alt="tutorial" className={classnames(styles.image, 'h-2/5')} />
         <div className={classnames(styles.caption, 'mt-2 mb-6 text-base font-medium max-w-xl md:text-lg text-center')}>
           <div>
             半夜時分，你接到一通未顯示來電。電話那頭請你接下一個神秘計畫。你是一名嚮往名利雙收的植物獵人，擅長在森林裡尋找瀕危的植物。

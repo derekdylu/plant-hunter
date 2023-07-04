@@ -94,12 +94,12 @@ input:checked + label {
   max-height: calc((100vh - 300px) / 2);
 }
 
+.optionImage {
+  // max-height: calc((100vh - 300px) / 6);
+}
+
 .options {
   z-index: 10;
-
-  @media screen and (min-width: 768px) {
-    transform: scale(1.2);
-  }
 
   @keyframes slideIn-easeOutElastic {
     0% {

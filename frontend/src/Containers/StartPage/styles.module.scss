@@ -131,6 +131,10 @@
   position: absolute;
   z-index: 20;
   top: calc(300px + (100vh - 250px) * 0.18);
+
+  @media screen and (max-height: 400px) {
+    top: calc(100vh - 150px);
+  }
 }
 
 .bottomRight {

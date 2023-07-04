@@ -133,15 +133,15 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
       <div className={classnames('flex flex-col w-full items-center justify-start px-6 pb-40')}>
         <div className={classnames('flex flex-row w-full items-center justify-between')}>
           <Link to="/" onClick={() => window.location.reload()}>
-            <img src={logotype} alt="logo" className={classnames('w-24 md:w-52 mt-4 mb-4 md:mb-0')}/>
+            <img src={logotype} alt="logo" className={classnames('w-24 md:w-36 mt-4 mb-4 md:mb-0')}/>
           </Link>
           <a href="https://www.gx-foundation.org" target="_blank" rel="noreferrer">
             <img src={logo} alt="logo" className='h-8 md:h-16' />
           </a>
         </div>
 
-        <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-8'>
-          <div className='flex flex-col items-center justify-center md:items-center md:justify-center'>
+        <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-0 md:mt-4'>
+          <div className='flex flex-col items-center justify-center md:items-center md:justify-start'>
             { 
               result === -1 ?
               <div role="status">
@@ -151,11 +151,11 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
                 </svg>
               </div>
               :
-              <img src={flowerList[result]} alt="flower" className={classnames(styles.flower, 'w-4/5 sm:w-3/5 md:w-full')} />
+              <img src={flowerList[result]} alt="flower" className={classnames(styles.flower, 'w-4/5 sm:w-3/5 md:w-auto md:h-4/5')} />
             }
           </div>
 
-          <div className={classnames('flex flex-col w-full items-start md:justify-center mt-5 md:my-0')}>
+          <div className={classnames('flex flex-col w-full items-start md:justify-start mt-5 md:mt-0')}>
             {
               result !== -1 &&
               <div className={classnames(styles.title, 'font-bold p-2 mb-1')}>
@@ -195,7 +195,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
           </div>
         </div>
 
-        <div className='mt-4 mb-8'>
+        <div className='mt-4 mb-8' ref={unlock}>
           <ReactPlayer
             url='https://youtu.be/Q65_LB3-ko4'
             width={width > MAXWIDTH ? MAXWIDTH + "px" : "80vw"}
@@ -205,7 +205,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
           />
         </div>
         
-        <div onClick={() => !disable && handleNextPage()} ref={unlock}>
+        <div onClick={() => !disable && handleNextPage()}>
           { !waiting && <PrimaryButton text='解鎖' disabled={disable} /> }
           { waiting && <PrimaryButton text={remainTxt} disabled={true} /> }
         </div>
