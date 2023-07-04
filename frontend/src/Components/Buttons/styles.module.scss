@@ -2,6 +2,11 @@
   width: 200px;
   height: 64px;
 
+  @media screen and (max-width: 768px) {
+    width: 181.25px;
+    height: 58px;
+  }
+
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -25,6 +30,11 @@
 .disabled {
   width: 200px;
   height: 64px;
+
+  @media screen and (max-width: 768px) {
+    width: 181.25px;
+    height: 58px;
+  }
 
   pointer-events: none;
   

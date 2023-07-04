@@ -175,7 +175,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
               </div>
               {
                 width > MD &&
-                <div className='w-fit bg-primary-200 text-primary-900 font-bold py-3 px-4 hover:bg-primary-100 active:bg-primary-100 rounded-full my-2' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
+                <div className='w-fit bg-primary-200 text-primary-900 font-bold py-3 px-8 hover:bg-primary-100 active:bg-primary-100 rounded-full my-2' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
                   觀看《花開富貴》預告解鎖！
                 </div>
               }

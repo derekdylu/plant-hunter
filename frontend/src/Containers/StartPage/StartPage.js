@@ -27,10 +27,10 @@ const StartPage = ({handleNextPage}) => {
           <div className='font-bold text-lg'>
             植物獵人：尋找你的靈魂植物
           </div>
-          <div className={classnames('mt-2')} onClick={() => handleNextPage()}>
+          <div className={classnames('mt-5')} onClick={() => handleNextPage()}>
             <PrimaryButton text='開始探索'/>
           </div>
-          <div className='text-sm mt-4'>
+          <div className='text-xs mt-1'>
             開始探索後您即同意本站之<Link to="/terms" className='underline'>使用條款</Link>
           </div>
         </div>

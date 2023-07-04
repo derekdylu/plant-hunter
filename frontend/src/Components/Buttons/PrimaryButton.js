@@ -10,7 +10,7 @@ const PrimaryButton = ({text, variant = "primary", disabled = false}) => {
                           disabled ? styles.disabled : styles.button, 
                           styles[variant], 
                           `
-                            text-5xl font-mono pb-2 
+                            text-3xl md:text-5xl tracking-wider font-mono pb-2 
                             ${variant === "primary" ? "active:text-primary-100" : "active:text-neutral-900"} 
                             ${disabled ? "text-neutral-300" : "text-neutral-800"}
                           `

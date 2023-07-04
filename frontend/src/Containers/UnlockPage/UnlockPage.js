@@ -134,7 +134,7 @@ const UnlockPage = ({result}) => {
             <img src={flowerList[result]} alt="flower" className={classnames(styles.flower, 'w-4/5 sm:w-3/5 md:w-full')} />
           </div>
 
-          <div className={classnames('flex flex-col w-full items-start md:justify-center mt-5 mb-16 md:my-0 xl:pr-32')}>
+          <div className={classnames('flex flex-col w-full items-start md:justify-center mt-5 mb-16 md:my-0 xl:pr-32 md:gap-2')}>
             <div className={classnames(styles.title, 'font-bold mt-4 p-2 mb-1')}>
               你的物種特性
             </div>
@@ -237,10 +237,10 @@ const UnlockPage = ({result}) => {
               </div>
             </div>
             
-            <div className={classnames(`flex flex-col w-full text-center items-center ${showAction ? "mt-0" : "mt-16"}`)}>
+            <div className={classnames(`flex flex-col w-full text-center items-center mt-6`)}>
               {
                 showAction &&
-                <div className='flex flex-row bg-primary-50 py-2 px-3 w-fit gap-2 rounded drop-shadow mb-2' ref={actionRef}>
+                <div className='absolute flex flex-row bg-primary-50 py-2 px-3 w-fit gap-2 rounded drop-shadow mb-2' ref={actionRef} style={{ transform: "translateY(-60px)" }}>
                   <a href="/" target="_blank">
                     <img src={fb} alt="fb" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
                   </a>
@@ -255,7 +255,7 @@ const UnlockPage = ({result}) => {
                   </a>
                 </div>
               }
-              <div className={classnames(`w-full bg-primary-50 text-primary-900 font-bold py-3 px-4 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full my-2`)} style={{ cursor: "pointer" }} onClick={() => setShowAction(!showAction)}>
+              <div className={classnames(`w-fit bg-primary-50 text-primary-900 font-bold py-3 px-8 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full my-2`)} style={{ cursor: "pointer" }} onClick={() => setShowAction(!showAction)}>
                 關注《怪咖》計畫
               </div>
             </div>
