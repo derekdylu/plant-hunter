@@ -68,22 +68,22 @@ const data = [
     "options": [
       {
         "title": "",
-        "score": [0],
+        "score": [3],
         "image": Q2_A
       },
       {
         "title": "",
-        "score": [1],
+        "score": [2,3],
         "image": Q2_B
       },
       {
         "title": "",
-        "score": [2],
+        "score": [0],
         "image": Q2_C
       },
       {
         "title": "",
-        "score": [3],
+        "score": [1],
         "image": Q2_D
       }
     ]
