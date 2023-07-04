@@ -216,7 +216,7 @@ const UnlockPage = ({result}) => {
         </div>
 
         <div className='flex flex-col md:flex-row md:gap-8 md:mb-4 items-center'>
-          <img src={poster} alt="poster" className='mt-8 md:w-1/2 h-fit'/>
+          <img src={poster} alt="poster" className='mt-8 md:w-1/2 w-full h-fit'/>
 
           <div className='flex flex-col items-center md:justify-center'>
             <div className={classnames('flex flex-col w-full items-start mt-5 mb-8 max-w-md')}>
