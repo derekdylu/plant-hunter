@@ -19,7 +19,7 @@ import arrow from '../../Assets/ResultPage/arrow.gif'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
-const DELAY = 15 * 1000
+const DELAY = 15  // seconds
 const MAXWIDTH = 680
 const MD = 768
 
@@ -76,10 +76,23 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
   const [disable, setDisable] = useState(true)
   const [waiting, setWaiting] = useState(false)
   const { width } = useWindowDimensions()
+  const [remainTxt, setRemainTxt] = useState(DELAY)
   const unlock = useRef(null)
 
-  const wait = (ms) => {
+  const delay = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  const wait = async () => {
+    let remain = DELAY
+    setWaiting(true)
+    while (remain > 0) {
+      await delay(1000)
+      remain -= 1
+      setRemainTxt(remain)
+    }
+    setDisable(false)
+    setWaiting(false)
   }
 
   const calculate = () => {
@@ -156,11 +169,8 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
               </div>
             }
 
-            <div className={classnames('flex flex-col w-full mt-16 md:my-16 items-center')}>
-              {/* <div className='text-center text-white mb-8'>
-                對結果不滿意？<Link to="/" onClick={() => window.location.reload()} className='underline'>再測一次</Link>
-              </div> */}
-              <div className={classnames('flex flex-row items-center justify-center')}>
+            <div className={classnames('flex flex-col w-full md:w-fit mt-16 md:my-16 items-center md:items-start')}>
+              <div className={classnames('flex flex-row w-full items-center justify-center')}>
                 <img src={lock} alt="lock" className={classnames('w-10 h-10 md:w-5 md:h-5 mr-4 md:mr-2')}/>
                 <div className={classnames('flex flex-col items-center justify-center')}>
                     <div className='text-center text-white'>
@@ -177,7 +187,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
               </div>
               {
                 width > MD &&
-                <div className='w-fit bg-primary-200 text-primary-900 font-bold py-3 px-8 hover:bg-primary-100 active:bg-primary-100 rounded-full my-2' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
+                <div className='w-fit bg-primary-200 text-primary-900 font-bold py-3 px-4 hover:bg-primary-100 active:bg-primary-100 rounded-full my-2' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
                   觀看《花開富貴》預告解鎖！
                 </div>
               }
@@ -191,18 +201,13 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
             width={width > MAXWIDTH ? MAXWIDTH + "px" : "80vw"}
             height={width > MAXWIDTH ? MAXWIDTH / 1.78 + "px" : "45vw"}
             muted={true}
-            onStart={async() => {
-              setWaiting(true)
-              await wait(DELAY)
-              setDisable(false)
-              setWaiting(false)
-            }}
+            onStart={async() => {wait()}}
           />
         </div>
         
         <div onClick={() => !disable && handleNextPage()} ref={unlock}>
           { !waiting && <PrimaryButton text='解鎖' disabled={disable} /> }
-          { waiting && <PrimaryButton text='再等等！' disabled={true} /> }
+          { waiting && <PrimaryButton text={remainTxt} disabled={true} /> }
         </div>
 
       </div>

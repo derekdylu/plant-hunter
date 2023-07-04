@@ -50,3 +50,11 @@
   transform: rotate(-5deg);
   background: #46361A;
 }
+
+.actionPanel {
+  transform: translate(-24px, -60px);
+
+  @media screen and (max-width: 768px) {
+    transform: translate(0px, -60px);
+  }
+}

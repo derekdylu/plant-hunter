@@ -247,10 +247,10 @@ const UnlockPage = ({result}) => {
               </div>
             </div>
             
-            <div className={classnames(`flex flex-col w-full text-center items-center mt-6`)}>
+            <div className={classnames(`flex flex-col w-full text-center items-center md:items-start mt-6`)}>
               {
                 showAction &&
-                <div className='absolute flex flex-row bg-primary-50 py-2 px-3 w-fit gap-2 rounded drop-shadow mb-2' ref={actionRef} style={{ transform: "translateY(-60px)" }}>
+                <div className={classnames(styles.actionPanel, 'absolute flex flex-row bg-primary-50 py-2 px-3 w-fit gap-2 rounded drop-shadow mb-2')} ref={actionRef}>
                   <a href="/" target="_blank">
                     <img src={fb} alt="fb" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
                   </a>
@@ -265,7 +265,7 @@ const UnlockPage = ({result}) => {
                   </a>
                 </div>
               }
-              <div className={classnames(`w-fit bg-primary-50 text-primary-900 font-bold py-3 px-8 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full my-2`)} style={{ cursor: "pointer" }} onClick={() => setShowAction(!showAction)}>
+              <div className={classnames(`w-full md:w-fit bg-primary-50 text-primary-900 font-bold py-3 px-4 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full my-2`)} style={{ cursor: "pointer" }} onClick={() => setShowAction(!showAction)}>
                 關注《怪咖》計畫
               </div>
             </div>
