@@ -126,7 +126,9 @@ const UnlockPage = ({result}) => {
           <Link to="/" onClick={() => window.location.reload()}>
             <img src={logotype} alt="logo" className={classnames('w-24 md:w-52 mt-4 mb-4 md:mb-0')}/>
           </Link>
-          <img src={logo} alt="logo" className='h-full' />
+          <a href="https://www.gx-foundation.org/" target="_blank" rel='noreferrer'>
+            <img src={logo} alt="logo" className='h-8 md:h-16' />
+          </a>
         </div>
 
         <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-16'>
@@ -170,7 +172,15 @@ const UnlockPage = ({result}) => {
           <PrimaryButton text='下載結果' variant='secondary'/>
         </Link>
 
-        <div className='flex flex-row items-center justify-center mt-6 gap-2'>
+        <Link to="/" onClick={() => window.location.reload()}>
+          <PrimaryButton text='再測一次' variant='text'/>
+        </Link>
+
+        <div className='flex flex-row items-center justify-center mt-12 gap-2'>
+          <div className='text-white mr-3'>
+            分享遊戲
+          </div>
+
           <FacebookShareButton
             url={mainURL}
             hashtag={"#"+flowerContent[result].title}
@@ -194,7 +204,7 @@ const UnlockPage = ({result}) => {
           </div>
         </div>
 
-        <div className='flex flex-col items-center justify-center mt-6 text-center text-white font-bold'>
+        <div className='flex flex-col items-center justify-center mt-12 text-center text-white font-bold'>
           <div>
             等等！
           </div>
@@ -260,10 +270,6 @@ const UnlockPage = ({result}) => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className='text-center mt-8'>
-          對結果不滿意？<Link to="/" onClick={() => window.location.reload()} className='underline'>再測一次</Link>
         </div>
       </div>
 

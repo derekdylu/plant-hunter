@@ -25,6 +25,15 @@
       background-image: url( '../../Assets/Elements/tape-BTN-sec-pressed.svg' );
     }
   }
+
+  &.text {
+    background: transparent;
+    text-decoration: underline;
+
+    &:active {
+      background: transparent;
+    }
+  }
 }
 
 .disabled {

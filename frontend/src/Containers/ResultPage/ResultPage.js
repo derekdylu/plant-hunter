@@ -19,7 +19,7 @@ import arrow from '../../Assets/ResultPage/arrow.gif'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
-const DELAY = 1 * 1000
+const DELAY = 15 * 1000
 const MAXWIDTH = 680
 const MD = 768
 
@@ -122,7 +122,9 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
           <Link to="/" onClick={() => window.location.reload()}>
             <img src={logotype} alt="logo" className={classnames('w-24 md:w-52 mt-4 mb-4 md:mb-0')}/>
           </Link>
-          <img src={logo} alt="logo" className='h-full' />
+          <a href="https://www.gx-foundation.org" target="_blank" rel="noreferrer">
+            <img src={logo} alt="logo" className='h-8 md:h-16' />
+          </a>
         </div>
 
         <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-8'>
@@ -154,10 +156,10 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
               </div>
             }
 
-            <div className={classnames('flex flex-col w-full mt-8 md:my-8 items-center')}>
-              <div className='text-center text-white mb-8'>
+            <div className={classnames('flex flex-col w-full mt-16 md:my-16 items-center')}>
+              {/* <div className='text-center text-white mb-8'>
                 對結果不滿意？<Link to="/" onClick={() => window.location.reload()} className='underline'>再測一次</Link>
-              </div>
+              </div> */}
               <div className={classnames('flex flex-row items-center justify-center')}>
                 <img src={lock} alt="lock" className={classnames('w-10 h-10 md:w-5 md:h-5 mr-4 md:mr-2')}/>
                 <div className={classnames('flex flex-col items-center justify-center')}>

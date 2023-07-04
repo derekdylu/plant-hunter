@@ -19,7 +19,9 @@ const StartPage = ({handleNextPage}) => {
 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>
-      <img src={logo} className={classnames(styles.foundLogo)} alt='logo' />
+      <a href="https://www.gx-foundation.org" target="_blank" rel="noreferrer">
+        <img src={logo} className={classnames(styles.foundLogo)} alt='logo' />
+      </a>
       <div className={classnames(styles.bottomLeft)}></div>
       <div className={classnames(styles.bottomRight)}></div>
       <div className={classnames('flex flex-row justify-center items-center')}>
