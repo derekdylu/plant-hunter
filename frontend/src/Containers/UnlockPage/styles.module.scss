@@ -1,3 +1,7 @@
+.container {
+  height: 100vh;
+}
+
 .background {
   position: fixed;
   z-index: -2;
@@ -11,10 +15,16 @@
 }
 
 .promotion {
+  transform: translateY(-175px);
+
   background-image: url('../../Assets/ResultPage/cardboard.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
+
+  @media (max-width: 768px) {
+    transform: translateY(-225px);
+  }
 }
 
 .logotype {

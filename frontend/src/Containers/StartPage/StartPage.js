@@ -23,7 +23,7 @@ const StartPage = ({handleNextPage}) => {
       <div className={classnames('flex flex-row justify-center items-center')}>
         <div className={classnames(styles.start, 'text-center text-neutral-900 px-8')}>
           <div className='font-bold text-lg'>
-            長出自己的樣子都是稀有物種。
+            植物獵人：尋找你的靈魂植物
           </div>
           <div className={classnames('mt-2')} onClick={() => handleNextPage()}>
             <PrimaryButton text='開始探索'/>

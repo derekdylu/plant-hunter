@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 import { FacebookShareButton, LineShareButton } from 'react-share';
@@ -7,6 +7,12 @@ import styles from './styles.module.scss'
 
 import background from '../../Assets/StartPage/background.jpg'
 import logotype from '../../Assets/StartPage/logotype.png'
+import scroll from '../../Assets/ResultPage/scroll.gif'
+
+import fb from '../../Assets/Elements/fb.svg'
+import ig from '../../Assets/Elements/ig.svg'
+import yt from '../../Assets/Elements/yt.svg'
+import web from '../../Assets/Elements/web.svg'
 
 import poster from '../../Assets/ResultPage/poster.png'
 import flower1 from '../../Assets/ResultPage/台灣水玉杯.png'
@@ -80,6 +86,8 @@ const flowerContent = [
 
 const UnlockPage = ({result}) => {
   const [alert, setAlert] = useState(false)
+  const [showAction, setShowAction] = useState(false)
+  const actionRef = useRef(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -93,8 +101,25 @@ const UnlockPage = ({result}) => {
     }
   }, [alert])
 
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (actionRef.current && !actionRef.current.contains(event.target)) {
+        setShowAction(false)
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [actionRef]);
+
   return (
-    <div className={classnames('container w-screen')}>
+    <div className={classnames(styles.container, 'container w-screen')}>
       <div className={classnames('flex flex-col w-screen items-center justify-start px-6')}>
         <div className={classnames('flex flex-row w-full items-start')}>
           <Link to="/" onClick={() => window.location.reload()}>
@@ -118,8 +143,8 @@ const UnlockPage = ({result}) => {
             <div className={classnames(styles.title, 'font-bold mt-4 p-2 mb-1')}>
               最佳冒險拍檔
             </div>
-            <div className="flex flex-row gap-2 mt-2">
-              <img src={smallList[flowerContent[result].partner.index]} alt="flower_small" className={classnames('w-1/2 mt-0')} />
+            <div className="flex flex-row gap-2 mt-2 w-full">
+              <img src={smallList[flowerContent[result].partner.index]} alt="flower_small" className={classnames('w-24 h-24 mt-0')} />
               <div className="flex flex-col w-full">
                 <div className={classnames(styles.description, 'font-bold mt-2 text-white')}>
                   {flowerContent[result].partner.title}
@@ -143,10 +168,7 @@ const UnlockPage = ({result}) => {
           <PrimaryButton text='下載結果' variant='secondary'/>
         </Link>
 
-        <div className='flex flex-row items-center justify-center mt-8 gap-2'>
-          <div className='font-bold text-white mr-4'>
-            分享遊戲
-          </div>
+        <div className='flex flex-row items-center justify-center mt-6 gap-2'>
           <FacebookShareButton
             url={mainURL}
             hashtag={"#"+flowerContent[result].title}
@@ -169,10 +191,21 @@ const UnlockPage = ({result}) => {
             }
           </div>
         </div>
+
+        <div className='flex flex-col items-center justify-center mt-6 text-center text-white font-bold'>
+          <div>
+            等等！
+          </div>
+          <div id="scrollAnchor">
+            還有更多精彩內容！
+          </div>
+          <img src={scroll} alt="scroll" className='mt-4' style={{ zIndex: "-1"}} />
+        </div>
+
       </div>
 
       <div className={classnames(styles.promotion, 'flex flex-col w-screen items-center justify-start px-6 pb-16')}>
-        <div className="mt-64 mb-4 max-w-md">
+        <div className="mt-80 md:mt-64 mb-4 max-w-md">
           做完測驗後，想更了解「植物獵人」這個職業嗎？歡迎點擊以下的影片連結，讓我們用20分鐘跟你說個關於「植物獵人—洪信介」的故事。
         </div>
 
@@ -180,11 +213,11 @@ const UnlockPage = ({result}) => {
           <PrimaryButton text='觀看影片'/>
         </div>
 
-        <div className='flex flex-col md:flex-row md:gap-8 md:mb-32'>
-          <img src={poster} alt="poster" className='mt-16 md:w-1/2'/>
+        <div className='flex flex-col md:flex-row md:gap-8 md:mb-4'>
+          <img src={poster} alt="poster" className='mt-8 md:w-1/2'/>
 
           <div className='flex flex-col items-center md:justify-center'>
-            <div className={classnames('flex flex-col w-full items-start mt-5 mb-16 max-w-md')}>
+            <div className={classnames('flex flex-col w-full items-start mt-5 mb-8 max-w-md')}>
               <div className={classnames(styles.title2, 'font-bold text-lg text-primary-200 mt-4 p-2 mb-1')}>
                 作品介紹
               </div>
@@ -192,16 +225,43 @@ const UnlockPage = ({result}) => {
                 洪信介 (阿改老師)，是個高中肄業卻能靠肉眼辨認上千種台灣植物的植物獵人，帶著他用原子筆手繪的植物圖受邀參與世界三大藝術展覽——卡賽爾文件展。《花開富貴》記錄了這位想要「名利雙收」的植物獵人，如何在森林裡找到自己的一片天，更為台灣的植物保育盡一份心。
               </div>
             </div>
-            
-            <div className='flex flex-col lg:flex-row gap-2 lg:gap-4'>
-              <div>
-                <PrimaryButton text='臉書粉專'/>
+
+            <div className={classnames('flex flex-col w-full items-start mt-5 mb-8 max-w-md')}>
+              <div className={classnames(styles.title2, 'font-bold text-lg text-primary-200 mt-4 p-2 mb-1')}>
+                關於《怪咖》計畫
               </div>
-              <div>
-                <PrimaryButton text='IG主頁'/>
+              <div className={classnames(styles.description, 'mt-2')}>
+                以紀錄片為起點，用生命感動生命，開展改變社會的行動網絡。怪咖計畫用三年拍攝18支紀錄短片，帶出不同面向的社會議題；透過線上線下公播和體制內外教師研習、撰寫教案與課程入班的方式，藉由新媒體的擴散以及教師的帶領思辨或行動提案，我們期許從校園扎根，再用行動擴散到社會，串聯民間企業團體一起行動，深化議題的討論，擴大社會影響力。
+              </div>
+            </div>
+            
+            <div className={classnames(`flex flex-col w-full text-center items-center ${showAction ? "mt-0" : "mt-16"}`)}>
+              {
+                showAction &&
+                <div className='flex flex-row bg-primary-50 py-2 px-3 w-fit gap-2 rounded drop-shadow mb-2' ref={actionRef}>
+                  <a href="/" target="_blank">
+                    <img src={fb} alt="fb" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
+                  </a>
+                  <a href="/" target="_blank">
+                    <img src={yt} alt="yt" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
+                  </a>
+                  <a href="/" target="_blank">
+                    <img src={ig} alt="ig" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
+                  </a>
+                  <a href="/" target="_blank">
+                    <img src={web} alt="web" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
+                  </a>
+                </div>
+              }
+              <div className={classnames(`w-full bg-primary-50 text-primary-900 font-bold py-3 px-4 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full my-2`)} style={{ cursor: "pointer" }} onClick={() => setShowAction(!showAction)}>
+                關注《怪咖》計畫
               </div>
             </div>
           </div>
+        </div>
+
+        <div className='text-center mt-8'>
+          對結果不滿意？<Link to="/" onClick={() => window.location.reload()} className='underline'>再測一次</Link>
         </div>
       </div>
 

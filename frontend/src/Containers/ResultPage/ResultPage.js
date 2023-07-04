@@ -18,7 +18,7 @@ import arrow from '../../Assets/ResultPage/arrow.gif'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
-const DELAY = 15000
+const DELAY = 1 * 1000
 const MAXWIDTH = 680
 const MD = 768
 
@@ -152,8 +152,11 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
               </div>
             }
 
-            <div className={classnames(`flex flex-col items-center ${disable || waiting?"animate-bounce":"animate-none"} md:animate-none w-full md:my-6`)}>
-              <div className={classnames('flex flex-row items-center justify-center mt-12')}>
+            <div className={classnames('flex flex-col w-full mt-8 md:my-8 items-center')}>
+              <div className='text-center text-white mb-8'>
+                對結果不滿意？<Link to="/" onClick={() => window.location.reload()} className='underline'>再測一次</Link>
+              </div>
+              <div className={classnames('flex flex-row items-center justify-center')}>
                 <img src={lock} alt="lock" className={classnames('w-10 h-10 md:w-5 md:h-5 mr-4 md:mr-2')}/>
                 <div className={classnames('flex flex-col items-center justify-center')}>
                     <div className='text-center text-white'>
@@ -168,9 +171,12 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
                 </div>
                 { width < MD && <img src={arrow} alt="arrow" className={classnames('w-10 h-10 ml-2')}/>}
               </div>
-              <div className='bg-primary-200 text-primary-900 font-bold py-3 px-4 active:bg-primary-100 rounded-full my-2' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
-                觀看《花開富貴》預告解鎖！
-              </div>
+              {
+                width > MD &&
+                <div className='w-fit bg-primary-200 text-primary-900 font-bold py-3 px-4 hover:bg-primary-100 active:bg-primary-100 rounded-full my-2' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
+                  觀看《花開富貴》預告解鎖！
+                </div>
+              }
             </div>
           </div>
         </div>
