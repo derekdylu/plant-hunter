@@ -251,16 +251,16 @@ const UnlockPage = ({result}) => {
               {
                 showAction &&
                 <div className={classnames(styles.actionPanel, 'absolute flex flex-row bg-primary-50 py-2 px-3 w-fit gap-2 rounded drop-shadow mb-2')} ref={actionRef}>
-                  <a href="/" target="_blank">
+                  <a href="https://m.facebook.com/theweirdointaiwan" target="_blank" rel="noreferrer">
                     <img src={fb} alt="fb" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
                   </a>
-                  <a href="/" target="_blank">
+                  <a href="https://youtube.com/@theweirdointaiwan" target="_blank" rel="noreferrer">
                     <img src={yt} alt="yt" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
                   </a>
-                  <a href="/" target="_blank">
+                  <a href="https://www.instagram.com/theweirdointaiwan" target="_blank" rel="noreferrer">
                     <img src={ig} alt="ig" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
                   </a>
-                  <a href="/" target="_blank">
+                  <a href="https://www.backstagestudio.com.tw" target="_blank" rel="noreferrer">
                     <img src={web} alt="web" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
                   </a>
                 </div>
