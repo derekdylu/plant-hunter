@@ -78,6 +78,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
   const { width } = useWindowDimensions()
   const [remainTxt, setRemainTxt] = useState(DELAY)
   const unlock = useRef(null)
+  const [dev] = useState(false)
 
   const delay = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -121,7 +122,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
       })
     })
     const data = await response.json()
-    console.log(data)
+    dev && console.log(data)
   }
 
   useEffect(() => {
