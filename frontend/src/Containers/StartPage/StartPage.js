@@ -8,7 +8,9 @@ import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 import logotype from '../../Assets/StartPage/logotype.png'
 import pr_m from '../../Assets/StartPage/middle paper.png'
 import background from '../../Assets/StartPage/background.jpg'
-import logo from '../../Assets/Elements/logo.png'
+import logoLeft from '../../Assets/Elements/logo_left.png'
+import logoRight from '../../Assets/Elements/logo_right.png'
+
 
 const StartPage = ({handleNextPage}) => {
   // const [tutorial, setTutorial] = useState(false)
@@ -19,8 +21,11 @@ const StartPage = ({handleNextPage}) => {
 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>
+      <a href="https://www.backstagestudio.com.tw" target="_blank" rel="noreferrer">
+        <img src={logoLeft} className={classnames(styles.foundLogoLeft)} alt='logo' />
+      </a>
       <a href="https://www.gx-foundation.org" target="_blank" rel="noreferrer">
-        <img src={logo} className={classnames(styles.foundLogo)} alt='logo' />
+        <img src={logoRight} className={classnames(styles.foundLogoRight)} alt='logo' />
       </a>
       <div className={classnames(styles.bottomLeft)}></div>
       <div className={classnames(styles.bottomRight)}></div>

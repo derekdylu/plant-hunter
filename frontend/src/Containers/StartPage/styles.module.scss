@@ -13,12 +13,21 @@
   background-position: center;
 }
 
-.foundLogo {
+.foundLogoLeft {
   position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
-  width: 252px;
+  width: 68px;
+  height: 48px;
+}
+
+.foundLogoRight {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 68px;
+  width: 184px;
   height: 48px;
 }
 

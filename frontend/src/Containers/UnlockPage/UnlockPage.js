@@ -8,7 +8,8 @@ import styles from './styles.module.scss'
 import background from '../../Assets/StartPage/background.jpg'
 import logotype from '../../Assets/StartPage/logotype.png'
 import scroll from '../../Assets/ResultPage/scroll.gif'
-import logo from '../../Assets/Elements/logo_tr.png'
+import logoLeft from '../../Assets/Elements/logo_tr_left.png'
+import logoRight from '../../Assets/Elements/logo_tr_right.png'
 
 import fb from '../../Assets/Elements/fb.svg'
 import ig from '../../Assets/Elements/ig.svg'
@@ -42,7 +43,7 @@ const flowerContent = [
   {
     "index": 0,
     "title": "台灣水玉杯",
-    "description": "台灣水玉杯 (學名：Thismia taiwanensis)，是種見光死的幽靈花，世界級的嚴重瀕臨絕種腐生植物，完全無葉綠素，因此除了繁殖下一代以外幾乎都待在地表下，哪怕是花果也是被腐葉覆蓋著，大小大概就飯粒這麼大，若不跪在地上仔細翻找幾乎看不見。人類一腳採下就能滅族或是滅種，上山走路要小心點你一個無心或有意的動作可能就輕易毀了好幾萬年演化來的物種！",
+    "description": "台灣水玉杯 (學名：Thismia taiwanensis)，是種見光死的幽靈花，世界級的嚴重瀕臨絕種腐生植物，完全無葉綠素，因此除了繁殖下一代以外幾乎都待在地表下，哪怕是花果也是被腐葉覆蓋著，大小大概就咖啡豆這麼大，若不跪在地上仔細翻找幾乎看不見。人類一腳採下就能滅族或是滅種，上山走路要小心點！你一個無心或有意的動作可能就輕易毀了好幾萬年演化來的物種！",
     "characteristic": "你是一個把自己真實個性與想法隱藏得很好的人。你善於控制自己的情緒和表達，常常給人一種神秘感，而且更喜歡在自己感到安全和舒適的環境中才打開心扉。",
     "partner": {
       "index": 3,
@@ -126,9 +127,14 @@ const UnlockPage = ({result}) => {
           <Link to="/" onClick={() => window.location.reload()}>
             <img src={logotype} alt="logo" className={classnames('w-24 md:w-52 mt-4 mb-4 md:mb-0')}/>
           </Link>
-          <a href="https://www.gx-foundation.org/" target="_blank" rel='noreferrer'>
-            <img src={logo} alt="logo" className='h-8 md:h-16' />
-          </a>
+          <div className='flex flex-row w-fit gap-0 items-center justify-end'>
+            <a href="https://www.backstagestudio.com.tw" target="_blank" rel="noreferrer">
+              <img src={logoLeft} alt="logo" className='h-8 md:h-16' />
+            </a>
+            <a href="https://www.gx-foundation.org" target="_blank" rel="noreferrer">
+              <img src={logoRight} alt="logo" className='h-8 md:h-16' />
+            </a>
+          </div>
         </div>
 
         <div className='flex flex-col md:grid md:grid-cols-2 md:gap-8 md:mb-16'>
@@ -251,7 +257,7 @@ const UnlockPage = ({result}) => {
               {
                 showAction &&
                 <div className={classnames(styles.actionPanel, 'absolute flex flex-row bg-primary-50 py-2 px-3 w-fit gap-2 rounded drop-shadow mb-2')} ref={actionRef}>
-                  <a href="https://m.facebook.com/theweirdointaiwan" target="_blank" rel="noreferrer">
+                  <a href="https://www.facebook.com/theweirdointaiwan" target="_blank" rel="noreferrer">
                     <img src={fb} alt="fb" width={40} height={40} style={{ cursor: "pointer" }} className='hover:bg-primary-100 rounded' />
                   </a>
                   <a href="https://youtube.com/@theweirdointaiwan" target="_blank" rel="noreferrer">
