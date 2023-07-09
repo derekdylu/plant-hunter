@@ -196,7 +196,7 @@ const UnlockPage = ({result}) => {
 
           <LineShareButton
             url={mainURL}
-            title={"一起來發現你的專屬植物吧！"}
+            title={"#"+flowerContent[result].title}
           >
             <img src={lineBTN} alt="line-share" width={40} height={40} />
           </LineShareButton>
@@ -210,15 +210,15 @@ const UnlockPage = ({result}) => {
           </div>
         </div>
 
-        <div className='flex flex-col items-center justify-center mt-12 text-center text-white font-bold'>
+        <div className='flex flex-col items-center justify-center mt-12 text-center text-white font-bold animate-bounce'>
           <div>
             等等！
           </div>
           <div id="scrollAnchor">
             還有更多精彩內容！
           </div>
-          <img src={scroll} alt="scroll" className='mt-4' style={{ zIndex: "-1"}} />
         </div>
+        <img src={scroll} alt="scroll" className='mt-4' style={{ zIndex: "-1"}} />
 
       </div>
 
@@ -272,7 +272,7 @@ const UnlockPage = ({result}) => {
                 </div>
               }
               <div className={classnames(`w-full md:w-fit bg-primary-50 text-primary-900 font-bold py-3 px-4 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full my-2`)} style={{ cursor: "pointer" }} onClick={() => setShowAction(!showAction)}>
-                關注《怪咖》計畫
+                關注《怪咖計畫》
               </div>
             </div>
           </div>

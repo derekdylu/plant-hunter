@@ -133,7 +133,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
             }
           </div>
           <div className={classnames(styles.button, 'mt-3')} onClick={() => !disabled && handleSubmit(problemIndex)}>
-            <PrimaryButton text='繼續' disabled={disabled} />
+            <PrimaryButton text='下一題' disabled={disabled} />
           </div>
         </div>
       </div>
