@@ -73,7 +73,7 @@ const default_orderAdjustmentList = [1,0,2,3]
 const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentList, handleNextPage}) => {
   const [result, setResult] = useState(-1)
   const selected = JSON.parse(localStorage.getItem('plant-hunter'))
-  const [disable, setDisable] = useState(true)
+  const [disable, setDisable] = useState(false)
   const [waiting, setWaiting] = useState(false)
   const { width } = useWindowDimensions()
   const [remainTxt, setRemainTxt] = useState(DELAY)
@@ -200,7 +200,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
 
         <div className='mt-4 mb-8' ref={unlock}>
           <ReactPlayer
-            url='https://youtu.be/Q65_LB3-ko4'
+            url='https://youtu.be/U_udsiBy14Q'
             width={width > MAXWIDTH ? MAXWIDTH + "px" : "80vw"}
             height={width > MAXWIDTH ? MAXWIDTH / 1.78 + "px" : "45vw"}
             muted={true}

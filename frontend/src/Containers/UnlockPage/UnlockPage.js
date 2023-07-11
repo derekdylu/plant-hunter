@@ -227,9 +227,9 @@ const UnlockPage = ({result}) => {
           做完測驗後，想更了解「植物獵人」這個職業嗎？歡迎點擊以下的影片連結，讓我們用20分鐘跟你說個關於「植物獵人—洪信介」的故事。
         </div>
 
-        <div>
+        <a href="https://youtu.be/Ow8hJBXoH_M" rel="noreferrer" target="_blank">
           <PrimaryButton text='觀看影片'/>
-        </div>
+        </a>
 
         <div className='flex flex-col md:flex-row md:gap-8 md:mb-4 items-center'>
           <img src={poster} alt="poster" className='mt-8 md:w-1/2 w-full h-fit'/>
