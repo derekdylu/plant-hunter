@@ -10,19 +10,18 @@ import background from '../../Assets/StartPage/background.jpg'
 import logotype from '../../Assets/StartPage/logotype.png'
 import logoLeft from '../../Assets/Elements/logo_tr_left.png'
 import logoRight from '../../Assets/Elements/logo_tr_right.png'
+import carousel from '../../Assets/ResultPage/carousel.gif'
 
 import flower1 from '../../Assets/ResultPage/台灣水玉杯.png'
 import flower2 from '../../Assets/ResultPage/桃紅蝴蝶蘭.png'
 import flower3 from '../../Assets/ResultPage/台灣喜普鞋蘭.png'
 import flower4 from '../../Assets/ResultPage/台灣野牡丹藤.png'
-import lock from '../../Assets/ResultPage/lock.png'
-import arrow from '../../Assets/ResultPage/arrow.gif'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
 const DELAY = 15  // seconds
 const MAXWIDTH = 680
-const MD = 768
+// const MD = 768
 
 const flowerList = [flower1, flower2, flower3, flower4]
 
@@ -176,28 +175,25 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
               </div>
             }
 
-            <div className={classnames('flex flex-col w-full md:w-fit mt-16 md:my-16 items-center md:items-start')}>
-              <div className={classnames('flex flex-row w-full items-center justify-center')}>
-                <img src={lock} alt="lock" className={classnames('w-10 h-10 md:w-5 md:h-5 mr-4 md:mr-2')}/>
-                <div className={classnames('flex flex-col items-center justify-center')}>
-                    <div className='text-center text-white'>
-                      想知道誰是你的最佳拍檔？
-                    </div>
-                    {
-                      width < MD &&
-                      <div className='text-center text-white'>
-                        觀看《花開富貴》預告解鎖！
-                      </div>
-                    }
+            <div className={classnames(styles.title, 'font-bold p-2 mt-6 mb-1')}>
+              你的最佳拍檔
+            </div>
+            <div className={classnames(styles.locker, 'flex flex-row w-full items-center justify-between rounded-lg pb-4 pt-4 px-6 mb-12 mt-2')}>
+              
+              <div className={classnames('flex flex-col items-start justify-center pt-2')}>
+                <div className='text-primary-900 font-bold text-sm lg:text-lg'>
+                  想知道誰是你的最佳拍檔？
                 </div>
-                { width < MD && <img src={arrow} alt="arrow" className={classnames('w-10 h-10 ml-2')}/>}
-              </div>
-              {
-                width > MD &&
-                <div className='w-fit bg-primary-200 text-primary-900 font-bold py-3 px-4 hover:bg-primary-100 active:bg-primary-100 rounded-full my-2' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
+                <div className='text-primary-900 font-bold text-sm lg:text-lg'>
                   觀看《花開富貴》預告解鎖！
                 </div>
-              }
+                <div className='w-fit bg-primary-50 text-primary-800 font-bold py-2 px-6 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full mt-4' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
+                  前往解鎖
+                </div>
+              </div>
+
+              <img src={carousel} alt="carousel" className='w-1/3 h-auto lg:h-full lg:w-auto' />
+              
             </div>
           </div>
         </div>

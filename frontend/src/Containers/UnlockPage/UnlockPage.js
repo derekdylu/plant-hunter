@@ -175,14 +175,14 @@ const UnlockPage = ({result}) => {
         </div>
 
         <Link to={"/" + result + ".png"} target="_blank">
-          <PrimaryButton text='下載結果' variant='secondary'/>
+          <PrimaryButton text='分享結果' variant='secondary'/>
         </Link>
 
         <Link to="/" onClick={() => window.location.reload()}>
           <PrimaryButton text='再測一次' variant='text'/>
         </Link>
 
-        <div className='flex flex-row items-center justify-center mt-12 gap-2'>
+        <div className='flex flex-row items-center justify-center mt-8 gap-2'>
           <div className='text-white mr-3'>
             分享遊戲
           </div>
