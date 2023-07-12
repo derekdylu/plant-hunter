@@ -145,14 +145,14 @@ const UnlockPage = ({result}) => {
 
           <div className={classnames('flex flex-col w-full items-start md:justify-center mt-5 mb-16 md:my-0 xl:pr-32 md:gap-2')}>
             <div className={classnames(styles.title, 'font-bold mt-4 p-2 mb-1')}>
-              你的物種特性
+              你的靈魂植物性格
             </div>
             <div className={classnames(styles.description, 'mt-2 text-white')}>
               {flowerContent[result].characteristic}
             </div>
 
             <div className={classnames(styles.title, 'font-bold mt-4 p-2 mb-1')}>
-              最佳冒險拍檔
+              你的最佳冒險拍檔
             </div>
             <div className="flex flex-row gap-2 mt-2 w-full">
               <img src={smallList[flowerContent[result].partner.index]} alt="flower_small" className={classnames('w-24 h-24 mt-0')} />
@@ -179,7 +179,7 @@ const UnlockPage = ({result}) => {
                     <span>
                       {flowerContent[result].descriptionMore}
                     </span>
-                    <span className='ml-1 text-primary-200' onClick={() => setReadMore(false)}>
+                    <span className='ml-1 text-primary-200' onClick={() => setReadMore(false)} style={{ cursor: "pointer" }}>
                       收合
                     </span>
                   </span>
@@ -188,7 +188,7 @@ const UnlockPage = ({result}) => {
                     <span>
                       ...
                     </span>
-                    <span className='text-primary-200' onClick={() => setReadMore(true)}>
+                    <span className='text-primary-200' onClick={() => setReadMore(true)} style={{ cursor: "pointer" }}>
                       閱讀更多
                     </span>
                   </span>

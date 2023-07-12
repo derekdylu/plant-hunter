@@ -185,7 +185,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
                     <span>
                       {flowerContent[result].descriptionMore}
                     </span>
-                    <span className='ml-1 text-primary-200' onClick={() => setReadMore(false)}>
+                    <span className='ml-1 text-primary-200' onClick={() => setReadMore(false)} style={{ cursor: "pointer" }}>
                       收合
                     </span>
                   </span>
@@ -194,7 +194,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
                     <span>
                       ...
                     </span>
-                    <span className='text-primary-200' onClick={() => setReadMore(true)}>
+                    <span className='text-primary-200' onClick={() => setReadMore(true)} style={{ cursor: "pointer" }}>
                       閱讀更多
                     </span>
                   </span>
@@ -203,13 +203,13 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
             }
 
             <div className={classnames(styles.title, 'font-bold p-2 mt-6 mb-1')}>
-              你的最佳拍檔
+              你的最佳冒險拍檔
             </div>
             <div className={classnames(styles.locker, 'flex flex-row w-full items-center justify-between rounded-lg pb-4 pt-4 px-6 mb-12 mt-2')}>
               
               <div className={classnames('flex flex-col items-start justify-center pt-2')}>
                 <div className='text-primary-900 font-bold text-sm lg:text-lg'>
-                  想知道誰是你的最佳拍檔？
+                  想知道誰是你的最佳冒險拍檔？
                 </div>
                 <div className='text-primary-900 font-bold text-sm lg:text-lg'>
                   觀看《花開富貴》預告解鎖！
