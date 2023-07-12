@@ -201,24 +201,29 @@ const data = [
   },
   {
     "index": 6,
-    "title": ["你在爬樹看這株植物時，因為看得太入迷，就失手從樹上摔落下來，滾了好幾圈。恢復意識後，你會："],
+    "title": ["你在爬樹時看植物太入迷了，不小心跌了下去。暈過去以後，你夢到了："],
     "grid": false,
     "puppet": Q7,
     "multiple": false,
     "options": [
       {
-        "title": "檢查相機有沒有摔壞",
-        "score": [0,2],
+        "title": "水鹿好奇舔你的臉叫醒你",
+        "score": [3],
         "image": null
       },
       {
-        "title": "動動筋骨確認身體",
+        "title": "遠方森林裡的鳥組成合唱團",
+        "score": [2],
+        "image": null
+      },
+      {
+        "title": "與穿山甲躲在樹洞裡睡覺",
+        "score": [0],
+        "image": null
+      },
+      {
+        "title": "你跟著幾隻蝴蝶翩翩起舞",
         "score": [1],
-        "image": null
-      },
-      {
-        "title": "躺著休息回顧人生",
-        "score": [2,3],
         "image": null
       }
     ]
@@ -232,12 +237,12 @@ const data = [
     "options": [
       {
         "title": "不管了！繼續採集",
-        "score": [1],
+        "score": [1,2],
         "image": null
       },
       {
         "title": "用既有材料包包綁綁修補褲子",
-        "score": [0],
+        "score": [0,3],
         "image": null
       }
     ]

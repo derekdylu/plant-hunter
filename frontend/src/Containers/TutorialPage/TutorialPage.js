@@ -26,6 +26,9 @@ const TutorialPage = ({handleNextPage}) => {
         <div className={classnames(styles.button)} onClick={() => handleNextPage()}>
           <PrimaryButton text='準備出發'/>
         </div>
+        <div className='text-xs mt-1 text-neutral-900'>
+          根據植物獵人親身經歷改編
+        </div>
       </div>
 
       <img src={background} className={classnames(styles.backCurtain)} alt='background' />
