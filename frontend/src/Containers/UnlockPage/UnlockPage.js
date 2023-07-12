@@ -197,7 +197,7 @@ const UnlockPage = ({result}) => {
           </div>
         </div>
 
-        <Link to={"/" + result + ".png"} target="_blank">
+        <Link to={"/" + result + ".jpg"} target="_blank">
           <PrimaryButton text='分享結果' variant='secondary'/>
         </Link>
 
