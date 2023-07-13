@@ -84,6 +84,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
   const unlock = useRef(null)
   const [dev] = useState(false)
   const [readMore, setReadMore] = useState(false)
+  const [glow, setGlow] = useState(false)
 
   const delay = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -99,6 +100,13 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
     }
     setDisable(false)
     setWaiting(false)
+  }
+
+  const handleScroll = async() => {
+    unlock.current.scrollIntoView({behavior: 'smooth'})
+    setGlow(true)
+    await delay(1000)
+    setGlow(false)
   }
 
   const calculate = () => {
@@ -214,7 +222,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
                 <div className='text-primary-900 font-bold text-sm lg:text-lg'>
                   觀看《花開富貴》預告解鎖！
                 </div>
-                <div className='w-fit bg-primary-50 text-primary-800 font-bold py-2 px-6 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full mt-4' onClick={() => unlock.current.scrollIntoView({behavior: 'smooth'})} style={{ cursor: "pointer" }} >
+                <div className='w-fit bg-primary-50 text-primary-800 font-bold py-2 px-6 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full mt-4' onClick={() => handleScroll()} style={{ cursor: "pointer" }} >
                   前往解鎖
                 </div>
               </div>
@@ -225,7 +233,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
           </div>
         </div>
 
-        <div className='mt-4 mb-8' ref={unlock}>
+        <div className={classnames(glow && styles.player,'mt-4 mb-8' )} ref={unlock}>
           <ReactPlayer
             url='https://youtu.be/U_udsiBy14Q'
             width={width > MAXWIDTH ? MAXWIDTH + "px" : "80vw"}
