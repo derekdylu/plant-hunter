@@ -34,7 +34,7 @@ import lineBTN from '../../Assets/Elements/line-BTN.svg'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
 
-const mainURL = "https://gx-plant-hunter.netlify.app/"
+const mainURL = "https://www.hunter-game.backstagestudio.com.tw/"
 
 const flowerList = [flower1, flower2, flower3, flower4]
 const smallList = [small1, small2, small3, small4]
