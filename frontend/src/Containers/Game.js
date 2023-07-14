@@ -73,7 +73,7 @@ const data = [
       },
       {
         "title": "",
-        "score": [2,3],
+        "score": [2],
         "image": Q2_B
       },
       {
@@ -237,12 +237,12 @@ const data = [
     "options": [
       {
         "title": "不管了！繼續採集",
-        "score": [1,2],
+        "score": [0,2],
         "image": null
       },
       {
         "title": "用既有材料包包綁綁修補褲子",
-        "score": [0,3],
+        "score": [1,3],
         "image": null
       }
     ]
