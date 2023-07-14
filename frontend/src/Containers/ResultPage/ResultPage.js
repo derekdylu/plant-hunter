@@ -223,7 +223,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
                   觀看《花開富貴》預告解鎖！
                 </div>
                 <div className='w-fit bg-primary-50 text-primary-800 font-bold py-2 px-6 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full mt-4' onClick={() => handleScroll()} style={{ cursor: "pointer" }} >
-                  前往解鎖
+                  看預告解鎖
                 </div>
               </div>
 
