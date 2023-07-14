@@ -72,7 +72,7 @@ const flowerContent = [
   }
 ]
 
-const default_orderAdjustmentList = [2,0,3,1]
+const default_orderAdjustmentList = [2,0,1,3]
 
 const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentList, handleNextPage}) => {
   const [result, setResult] = useState(-1)
