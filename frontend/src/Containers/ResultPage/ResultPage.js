@@ -77,7 +77,7 @@ const default_orderAdjustmentList = [2,0,1,3]
 const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentList, handleNextPage}) => {
   const [result, setResult] = useState(-1)
   const selected = JSON.parse(localStorage.getItem('plant-hunter'))
-  const [disable, setDisable] = useState(true) // set to true when online
+  const [disable, setDisable] = useState(true)
   const [waiting, setWaiting] = useState(false)
   const { width } = useWindowDimensions()
   const [remainTxt, setRemainTxt] = useState(DELAY)
