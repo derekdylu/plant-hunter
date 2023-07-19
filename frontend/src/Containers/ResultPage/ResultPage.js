@@ -238,7 +238,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
             url='https://youtu.be/U_udsiBy14Q'
             width={width > MAXWIDTH ? MAXWIDTH + "px" : "80vw"}
             height={width > MAXWIDTH ? MAXWIDTH / 1.78 + "px" : "45vw"}
-            muted={true}
+            muted={false}
             onStart={async() => {wait()}}
           />
         </div>
