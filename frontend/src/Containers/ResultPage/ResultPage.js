@@ -241,12 +241,15 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
 
         <div className={classnames(styles.locker, 'flex flex-col w-fit items-center justify-between rounded-lg pb-4 pt-12 sm:pt-24 px-6 mb-12 mt-28 sm:mt-36')} style={width > MAXWIDTH ? { width: MAXWIDTH + "px" } : { width: "80vw" }}>
 
-          <div className={classnames('flex flex-col items-start justify-center pt-2')}>
+          <div className={classnames('flex flex-col items-start justify-center pt-2 gap-2')}>
             <div className='text-primary-900 font-bold text-xl lg:text-3xl'>
-              物種辨識中...
+              還差一步！物種辨識中...
             </div>
             <div className='text-primary-900 text-sm lg:text-lg'>
-              身為植物獵人的你，必須了解植物的物種特性。在這方面，植物獵人前輩--阿改老師經驗豐富，在他的故事《花開富貴》中或許可以找到線索。觀看《花開富貴》預告解鎖物種特性！
+              身為植物獵人的你，必須了解植物的物種特性。在這方面，植物獵人阿改老師經驗豐富，在他的故事《花開富貴》中或許可以找到線索。
+            </div>
+            <div className='text-primary-900 text-sm font-bold lg:text-lg'>
+              觀看《花開富貴》預告解鎖物種特性！
             </div>
             <div className='w-full text-center bg-primary-50 text-primary-800 font-bold py-2 px-6 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full mt-6' onClick={() => handleScroll()} style={{ cursor: "pointer" }} >
               觀看下方預告解鎖
