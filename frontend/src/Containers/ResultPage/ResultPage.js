@@ -11,6 +11,8 @@ import logotype from '../../Assets/StartPage/logotype.png'
 import logoLeft from '../../Assets/Elements/logo_tr_left.png'
 import logoRight from '../../Assets/Elements/logo_tr_right.png'
 import carousel from '../../Assets/ResultPage/carousel.gif'
+import lock from '../../Assets/ResultPage/lock.png'
+import arrow from '../../Assets/ResultPage/arrow.gif'
 
 // import flower1 from '../../Assets/ResultPage/台灣水玉杯.png'
 // import flower2 from '../../Assets/ResultPage/桃紅蝴蝶蘭.png'
@@ -85,6 +87,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
   const [dev] = useState(false)
   // const [readMore, setReadMore] = useState(false)
   const [glow, setGlow] = useState(false)
+  const [glowButton, setGlowButton] = useState(false)
 
   const delay = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -111,6 +114,12 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
     setGlow(true)
     await delay(1000)
     setGlow(false)
+  }
+
+  const handleGlowButton = async() => {
+    setGlowButton(true)
+    await delay(1000)
+    setGlowButton(false)
   }
 
   const calculate = () => {
@@ -239,26 +248,41 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
 
         <img src={carousel} alt="carousel" className={classnames(styles.carousel, 'w-[160px] sm:w-[240px] h-auto')}/>
 
-        <div className={classnames(styles.locker, 'flex flex-col w-fit items-center justify-between rounded-lg pb-4 pt-12 sm:pt-24 px-6 mb-12 mt-28 sm:mt-36')} style={width > MAXWIDTH ? { width: MAXWIDTH + "px" } : { width: "80vw" }}>
+        <div className={classnames(styles.locker, 'flex flex-col w-fit items-center justify-between rounded-lg pb-4 pt-12 sm:pt-24 px-6 md:px-12 mb-12 mt-28 sm:mt-36')} style={width > MAXWIDTH ? { width: MAXWIDTH + "px" } : { width: "80vw" }}>
 
           <div className={classnames('flex flex-col items-start justify-center pt-2 gap-2')}>
             <div className='text-primary-900 font-bold text-xl lg:text-3xl'>
-              還差一步！物種辨識中...
-            </div>
-            <div className='text-primary-900 text-sm lg:text-lg'>
-              身為植物獵人的你，必須了解植物的物種特性。在這方面，植物獵人阿改老師經驗豐富，在他的故事《花開富貴》中或許可以找到線索。
+              最後一步！
             </div>
             <div className='text-primary-900 text-sm font-bold lg:text-lg'>
-              觀看《花開富貴》預告解鎖物種特性！
+              觀看下方《花開富貴》預告影片 15 秒，就可以解鎖你靈魂中的稀有植物囉！
             </div>
-            <div className='w-full text-center bg-primary-50 text-primary-800 font-bold py-2 px-6 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full mt-6' onClick={() => handleScroll()} style={{ cursor: "pointer" }} >
-              觀看下方預告解鎖
+            <div className='w-full text-center bg-primary-50 text-primary-800 font-bold py-2 px-6 hover:bg-primary-900 hover:text-primary-100 active:bg-primary-900 active:text-primary-100 rounded-full mt-2' onClick={() => handleScroll()} style={{ cursor: "pointer" }} >
+              馬上觀看下方預告解鎖
             </div>
           </div>
           
         </div>
 
-        <div className={classnames(glow && styles.player,'mt-4 mb-8' )} ref={unlock}>
+        {
+          disable &&
+          <div className={classnames(`${(disable && !waiting)?"animate-bounce":"animate-none"}`)} onClick={() => handleGlow()}>
+            <div className={classnames('flex flex-row items-center justify-center mb-2')}>
+              <img src={lock} alt="lock" className={classnames('w-10 h-10 mr-4')}/>
+              <div className={classnames('flex flex-col items-center justify-center')}>
+                  <div className='text-center text-white'>
+                    點擊 ▶︎ 播放
+                  </div>
+                  <div className='text-center text-white'>
+                    15 秒後解鎖結果！
+                  </div>
+              </div>
+              <img src={arrow} alt="arrow" className={classnames('w-10 h-10 ml-2')}/>
+            </div>
+          </div>
+        }
+
+        <div className={classnames(glow && styles.glowing,'mt-4 mb-8' )} ref={unlock}>
           <ReactPlayer
             url='https://youtu.be/U_udsiBy14Q'
             width={width > MAXWIDTH ? MAXWIDTH + "px" : "80vw"}
@@ -268,7 +292,22 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
           />
         </div>
         
-        <div onClick={() => disable ? handleGlow() : handleNextPage()}>
+        {
+          !disable &&
+          <div className={classnames('animate-bounce')} onClick={() => handleGlowButton()}>
+            <div className={classnames('flex flex-row items-center justify-center mb-2')}>
+              <img src={lock} alt="lock" className={classnames('w-10 h-10 mr-4')}/>
+              <div className={classnames('flex flex-col items-center justify-center')}>
+                  <div className='text-center text-white'>
+                    立刻解鎖！
+                  </div>
+              </div>
+              <img src={arrow} alt="arrow" className={classnames('w-10 h-10 ml-2')}/>
+            </div>
+          </div>
+        }
+
+        <div onClick={() => disable ? handleGlow() : handleNextPage()} className={classnames((!disable && glowButton) && styles.glowing)}>
           { !waiting && !disable && <PrimaryButton text='解鎖！' disabled={disable} /> }
           { !waiting && disable && <PrimaryButton text='看預告解鎖' disabled={disable} /> }
           { waiting && <PrimaryButton text={"再等" + remainTxt + "秒"} disabled={true} /> }
