@@ -95,6 +95,7 @@ const UnlockPage = ({result}) => {
   const [showAction, setShowAction] = useState(false)
   const actionRef = useRef(null)
   const [readMore, setReadMore] = useState(false)
+  const [dev] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -124,6 +125,18 @@ const UnlockPage = ({result}) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [actionRef]);
+
+  const postShare = async (val) => {
+    const response = await fetch('/.netlify/functions/post_share', {
+      method: 'POST',
+      body: JSON.stringify({
+        "share": val
+      })
+    })
+
+    const data = await response.json()
+    dev && console.log(data)
+  }
 
   return (
     <div className={classnames(styles.container, 'container w-screen')}>
@@ -201,9 +214,11 @@ const UnlockPage = ({result}) => {
           </div>
         </div>
 
-        <Link to={"/" + result + ".jpg"} target="_blank">
-          <PrimaryButton text='分享結果' variant='secondary'/>
-        </Link>
+        <div onClick={() => postShare("download")}>
+          <Link to={"/" + result + ".jpg"} target="_blank">
+            <PrimaryButton text='分享結果' variant='secondary'/>
+          </Link>
+        </div>
 
         <Link to="/" onClick={() => window.location.reload()}>
           <PrimaryButton text='再測一次' variant='text'/>
@@ -214,20 +229,25 @@ const UnlockPage = ({result}) => {
             分享遊戲
           </div>
 
-          <FacebookShareButton
-            url={mainURL}
-            hashtag={"#"+flowerContent[result].title}
-          >
-            <img src={fbBTN} alt="fb-share" width={40} height={40} />
-          </FacebookShareButton>
+          <div onClick={() => postShare("fb")}>
+            <FacebookShareButton
+              url={mainURL}
+              hashtag={"#"+flowerContent[result].title}
+            >
+              <img src={fbBTN} alt="fb-share" width={40} height={40} />
+            </FacebookShareButton>
+          </div>
 
-          <LineShareButton
-            url={mainURL}
-            title={"#"+flowerContent[result].title}
-          >
-            <img src={lineBTN} alt="line-share" width={40} height={40} />
-          </LineShareButton>
-          <div onClick={() => {navigator.clipboard.writeText(mainURL); setAlert(true);}} style={{ cursor: "pointer" }} >
+          <div onClick={() => postShare("line")}>
+            <LineShareButton
+              url={mainURL}
+              title={"#"+flowerContent[result].title}
+            >
+              <img src={lineBTN} alt="line-share" width={40} height={40} />
+            </LineShareButton>
+          </div>
+
+          <div onClick={() => {navigator.clipboard.writeText(mainURL); setAlert(true); postShare("copy link");}} style={{ cursor: "pointer" }} >
             {
               alert ?
               <img src={doneBTN} alt="done-share" width={40} height={40} />

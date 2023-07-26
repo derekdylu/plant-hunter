@@ -151,6 +151,23 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
     dev && console.log(data)
   }
 
+  const postShare = async (val) => {
+    const response = await fetch('/.netlify/functions/post_share', {
+      method: 'POST',
+      body: JSON.stringify({
+        "share": val
+      })
+    })
+
+    const data = await response.json()
+    dev && console.log(data)
+  }
+
+  const handleUnlock = () => {
+    handleNextPage();
+    postShare("unlock");
+  }
+
   useEffect(() => {
     calculate()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -307,7 +324,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
           </div>
         }
 
-        <div onClick={() => disable ? handleGlow() : handleNextPage()} className={classnames((!disable && glowButton) && styles.glowing)}>
+        <div onClick={() => disable ? handleGlow() : handleUnlock() } className={classnames((!disable && glowButton) && styles.glowing)}>
           { !waiting && !disable && <PrimaryButton text='解鎖！' disabled={disable} /> }
           { !waiting && disable && <PrimaryButton text='看預告解鎖' disabled={disable} /> }
           { waiting && <PrimaryButton text={"再等" + remainTxt + "秒"} disabled={true} /> }
