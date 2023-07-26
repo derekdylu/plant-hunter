@@ -159,6 +159,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
       })
     })
 
+    console.log("post unlock tag")
     const data = await response.json()
     dev && console.log(data)
   }
