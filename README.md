@@ -14,11 +14,13 @@
   </a>
 </p>
 
+<p align="center">
 <img src="https://i.ibb.co/YLbpg4f/floating.png" alt="floating" border="0">
 
 <img src="https://i.ibb.co/KhFSmwb/image.png" alt="image" border="0">
 
 <img src="https://i.ibb.co/bN5VpJX/image.png" alt="image" border="0">
+</p>
 
 ## Introduction
 This project is aimed at creating a mini game to promote a documentary.
