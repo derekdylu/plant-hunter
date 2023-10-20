@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-    <a href="https://plant-hunter-gx.netlify.app/">
+    <a href="https://gx-plant-hunter.netlify.app/">
         <img src="https://img.shields.io/badge/PLAY-NOW-green" alt="backup link">
     </a>
 </p>
