@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classnames from 'classnames'
 import styles from './styles.module.scss'
 import { Link } from 'react-router-dom'
@@ -15,9 +15,11 @@ import logoRight from '../../Assets/Elements/logo_right.png'
 const StartPage = ({handleNextPage}) => {
   // const [tutorial, setTutorial] = useState(false)
 
-  localStorage.clear()
-  localStorage.setItem("plant-hunter", JSON.stringify([]))
-  localStorage.setItem("ops", JSON.stringify([]))
+  useEffect(() => {
+    window.localStorage.removeItem('result')
+    window.localStorage.setItem('plant-hunter', JSON.stringify([]))
+    window.localStorage.setItem('ops', JSON.stringify([]))
+  }, [])
 
   return (
     <div className={classnames(styles.wrapper, 'container w-screen h-screen max-w-none')}>

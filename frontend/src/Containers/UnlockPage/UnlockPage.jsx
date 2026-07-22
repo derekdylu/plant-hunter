@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
-import { FacebookShareButton, LineShareButton } from 'react-share';
 
 import styles from './styles.module.scss'
 
@@ -33,8 +32,9 @@ import fbBTN from '../../Assets/Elements/fb-BTN.svg'
 import lineBTN from '../../Assets/Elements/line-BTN.svg'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
+import { recordShare } from '../../api/analytics'
 
-const mainURL = "https://www.hunter-game.backstagestudio.com.tw/"
+const mainURL = import.meta.env.VITE_PUBLIC_SITE_URL || `${window.location.origin}/`
 
 const flowerList = [flower1, flower2, flower3, flower4]
 const smallList = [small1, small2, small3, small4]
@@ -95,7 +95,9 @@ const UnlockPage = ({result}) => {
   const [showAction, setShowAction] = useState(false)
   const actionRef = useRef(null)
   const [readMore, setReadMore] = useState(false)
-  const [dev] = useState(false)
+  const shareTitle = `#${flowerContent[result].title}`
+  const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(mainURL)}&hashtag=${encodeURIComponent(shareTitle)}`
+  const lineShareURL = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(mainURL)}&text=${encodeURIComponent(shareTitle)}`
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -125,18 +127,6 @@ const UnlockPage = ({result}) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [actionRef]);
-
-  const postShare = async (val) => {
-    const response = await fetch('/.netlify/functions/post_share', {
-      method: 'POST',
-      body: JSON.stringify({
-        "share": val
-      })
-    })
-
-    const data = await response.json()
-    dev && console.log(data)
-  }
 
   return (
     <div className={classnames(styles.container, 'container w-screen')}>
@@ -214,7 +204,7 @@ const UnlockPage = ({result}) => {
           </div>
         </div>
 
-        <div onClick={() => postShare("download")}>
+        <div onClick={() => void recordShare("download")}>
           <Link to={"/" + result + ".jpg"} target="_blank">
             <PrimaryButton text='分享結果' variant='secondary'/>
           </Link>
@@ -229,25 +219,29 @@ const UnlockPage = ({result}) => {
             分享遊戲
           </div>
 
-          <div onClick={() => postShare("fb")}>
-            <FacebookShareButton
-              url={mainURL}
-              hashtag={"#"+flowerContent[result].title}
+          <div>
+            <a
+              href={facebookShareURL}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => void recordShare("fb")}
             >
               <img src={fbBTN} alt="fb-share" width={40} height={40} />
-            </FacebookShareButton>
+            </a>
           </div>
 
-          <div onClick={() => postShare("line")}>
-            <LineShareButton
-              url={mainURL}
-              title={"#"+flowerContent[result].title}
+          <div>
+            <a
+              href={lineShareURL}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => void recordShare("line")}
             >
               <img src={lineBTN} alt="line-share" width={40} height={40} />
-            </LineShareButton>
+            </a>
           </div>
 
-          <div onClick={() => {navigator.clipboard.writeText(mainURL); setAlert(true); postShare("copy link");}} style={{ cursor: "pointer" }} >
+          <div onClick={() => {navigator.clipboard.writeText(mainURL); setAlert(true); void recordShare("copy link");}} style={{ cursor: "pointer" }} >
             {
               alert ?
               <img src={doneBTN} alt="done-share" width={40} height={40} />

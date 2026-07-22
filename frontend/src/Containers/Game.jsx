@@ -321,11 +321,11 @@ const Game = () => {
       setPhase(2);
     }
     if (phase === 3) {
-      setResult(JSON.parse(localStorage.getItem('result')))
+      setResult(JSON.parse(window.localStorage.getItem('result')))
       setPhase(4);
     }
     if (phase === 2 && problem === data.length - 1) {
-      setResultList(JSON.parse(localStorage.getItem('plant-hunter')))
+      setResultList(JSON.parse(window.localStorage.getItem('plant-hunter')))
       setPhase(3);
     }
     if (phase === 2 && problem < data.length - 1) {

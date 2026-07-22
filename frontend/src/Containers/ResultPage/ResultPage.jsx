@@ -20,6 +20,7 @@ import arrow from '../../Assets/ResultPage/arrow.gif'
 // import flower4 from '../../Assets/ResultPage/台灣野牡丹藤.png'
 
 import PrimaryButton from '../../Components/Buttons/PrimaryButton'
+import { recordQuizResult, recordShare } from '../../api/analytics'
 
 const DELAY = 15  // seconds
 const MAXWIDTH = 680
@@ -78,13 +79,12 @@ const default_orderAdjustmentList = [2,0,1,3]
 
 const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentList, handleNextPage}) => {
   // const [result, setResult] = useState(-1)
-  const selected = JSON.parse(localStorage.getItem('plant-hunter'))
+  const selected = JSON.parse(window.localStorage.getItem('plant-hunter'))
   const [disable, setDisable] = useState(true)
   const [waiting, setWaiting] = useState(false)
   const { width } = useWindowDimensions()
   const [remainTxt, setRemainTxt] = useState(DELAY)
   const unlock = useRef(null)
-  const [dev] = useState(false)
   // const [readMore, setReadMore] = useState(false)
   const [glow, setGlow] = useState(false)
   const [glowButton, setGlowButton] = useState(false)
@@ -134,39 +134,16 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
 
     resList.sort((a, b) => b.score - a.score || orderAdjustmentList.indexOf(a.index) - orderAdjustmentList.indexOf(b.index))
     // setResult(resList[0].index)
-    postResult(resList[0].index)
-    localStorage.setItem("result", JSON.stringify(resList[0].index))
-  }
-
-  const postResult = async (val) => {
-    const response = await fetch('/.netlify/functions/post_result', {
-      method: 'POST',
-      body: JSON.stringify({
-        "timestamp": new Date().toISOString(),
-        "selection": JSON.parse(localStorage.getItem('ops')),
-        "result": val
-      })
-    })
-    const data = await response.json()
-    dev && console.log(data)
-  }
-
-  const postShare = async (val) => {
-    const response = await fetch('/.netlify/functions/post_share', {
-      method: 'POST',
-      body: JSON.stringify({
-        "share": val
-      })
-    })
-
-    console.log("post unlock tag")
-    const data = await response.json()
-    dev && console.log(data)
+    void recordQuizResult(
+      JSON.parse(window.localStorage.getItem('ops')),
+      resList[0].index,
+    )
+    window.localStorage.setItem("result", JSON.stringify(resList[0].index))
   }
 
   const handleUnlock = () => {
     handleNextPage();
-    postShare("unlock");
+    void recordShare("unlock");
   }
 
   useEffect(() => {
