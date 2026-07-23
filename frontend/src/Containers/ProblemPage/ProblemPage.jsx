@@ -110,7 +110,7 @@ const ProblemPage = ({problemIndex, problems, options = default_options, grid = 
       <div className={classnames(styles.bottomCurtain)}></div>
       <div className={classnames(styles.bottomRightCurtain)}></div>
       
-      <div className='absolute flex flex-col w-screen h-screen items-center justify-center pt-56 md:pt-68 pb-36 md:pb-20'>
+      <div className='absolute flex flex-col w-screen h-screen items-center justify-center pt-56 md:pt-56 pb-36 md:pb-20'>
         <div className='absolute flex flex-col w-4/5 lg:w-full h-full items-center justify-center'>
           <div className={classnames(styles.options, `${grid?"grid grid-cols-2 lg:grid-cols-4 items-center": (ratio > 1.5 && height < MAX_HEIGHT) ? "grid grid-cols-2 items-center gap-x-4" : "flex flex-col items-center"} justify-items-center`)}>
             {
