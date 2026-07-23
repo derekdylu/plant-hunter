@@ -279,7 +279,7 @@ const ResultPage = ({resultList, orderAdjustmentList = default_orderAdjustmentLi
 
         <div className={classnames(glow && styles.glowing,'mt-4 mb-8' )} ref={unlock}>
           <ReactPlayer
-            url='https://youtu.be/U_udsiBy14Q'
+            src='https://youtu.be/U_udsiBy14Q'
             width={width > MAXWIDTH ? MAXWIDTH + "px" : "80vw"}
             height={width > MAXWIDTH ? MAXWIDTH / 1.78 + "px" : "45vw"}
             muted={false}
