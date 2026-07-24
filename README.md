@@ -1,5 +1,7 @@
 # Plant Hunter
 
+<img width="1920" height="1080" alt="plant-hunter" src="https://github.com/user-attachments/assets/171d3cae-5099-4b53-9050-ec82f4ab0c27" />
+
 Plant Hunter is an interactive quiz game created to accompany the documentary campaign **花開富貴：找到你靈魂中的稀有植物**. Players answer ten illustrated questions, receive one of four plant profiles, and can share the result.
 
 ## Project status
