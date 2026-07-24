@@ -1,10 +1,10 @@
 # Plant Hunter
 
-Plant Hunter is a Traditional Chinese interactive quiz created to accompany the documentary campaign **花開富貴：找到你靈魂中的稀有植物**. Players answer ten illustrated questions, receive one of four plant profiles, and can share the result.
+Plant Hunter is an interactive quiz game created to accompany the documentary campaign **花開富貴：找到你靈魂中的稀有植物**. Players answer ten illustrated questions, receive one of four plant profiles, and can share the result.
 
 ## Project status
 
-This is a preserved 2023 campaign project with a modernized build and security baseline. The game can run as a static React application; optional Netlify Functions record aggregate quiz and share events in MongoDB.
+The game can run as a static React application; optional Netlify Functions record aggregate quiz and share events in MongoDB.
 
 Before publishing or deploying a fork, review the [publication checklist](#publication-checklist), especially the media rights and privacy items.
 
@@ -41,8 +41,6 @@ To run the UI and Netlify Functions together, copy the safe configuration templa
 cp frontend/.env.example frontend/.env
 netlify dev
 ```
-
-Never commit `frontend/.env` or put `MONGO_URI` in a variable whose name begins with `VITE_`; Vite-prefixed variables are bundled into browser code.
 
 ## Configuration
 
@@ -84,10 +82,6 @@ frontend/
 netlify.toml            Netlify build and runtime configuration
 ```
 
-## Security
-
-Please follow [`SECURITY.md`](SECURITY.md) and do not publish credentials, personal data, or vulnerability details in a public issue. The event endpoints are intentionally unauthenticated because they receive anonymous browser events; validation and per-IP rate limiting reduce abuse but cannot prevent distributed false analytics submissions.
-
 ## Publication checklist
 
 - Confirm that the repository owner has the right to publish the source, campaign copy, documentary excerpts, logos, illustrations, photographs, fonts, and other media.
@@ -96,10 +90,6 @@ Please follow [`SECURITY.md`](SECURITY.md) and do not publish credentials, perso
 - Configure `MONGO_URI` only in the Netlify Functions scope and restrict the database account to the required database and insert operations.
 - Re-run the tests, build, dependency audit, and secret scans before deployment.
 - Inspect GitHub secret scanning, code scanning, Dependabot alerts, releases, Pages, wiki, workflow artifacts, and repository visibility with authenticated owner access.
-
-## Contributing
-
-See [`CONTRIBUTING.md`](CONTRIBUTING.md). Keep changes focused, include tests for behavior or security fixes, and verify that contributed content can be redistributed.
 
 ## License
 
